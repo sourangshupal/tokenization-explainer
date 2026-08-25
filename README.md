@@ -189,28 +189,57 @@ The `production` branch trains a **byte-level BPE tokenizer on legal English** a
 
 Domain-adapted BPE uses **9–17% fewer tokens** than GPT-4o/Llama-3 on legal documents (KL3M, 2025). Specialized terms like `certiorari`, `indemnification`, and `subrogation` each become **one token** instead of 3–5.
 
-### Quickstart (after corpus + training)
+### Quickstart
 
 ```bash
 git checkout production
-uv sync
+make install          # uv sync
+```
 
-# 1. Download and shard the FreeLaw corpus (~30-45 min, I/O-bound)
+Run the full pipeline step by step:
+
+```bash
+make corpus           # stream + shard FreeLaw      (~30-45 min, I/O)
+make train            # train byte-level BPE         (~1-2 h, CPU)
+make wrap             # wrap into HF fast tokenizer
+make eval             # TokEval metrics vs gpt2 + cl100k_base
+make test             # 112 pytest cases
+make push REPO=YOUR_USERNAME/legal-bpe-50k
+```
+
+Or all in one shot:
+
+```bash
+make all
+```
+
+**Override defaults on the command line:**
+
+| Variable | Default | Example |
+|---|---|---|
+| `MAX_SHARDS` | 10 | `make corpus MAX_SHARDS=5` |
+| `SHARD_MB` | 500 | `make corpus SHARD_MB=200` |
+| `VOCAB_SIZE` | 50257 | `make train VOCAB_SIZE=100000` |
+| `MIN_FREQ` | 2 | `make train MIN_FREQ=5` |
+| `TEST_DOCS` | 500 | `make eval TEST_DOCS=1000` |
+| `REPO` | YOUR_USERNAME/legal-bpe-50k | `make push REPO=alice/legal-bpe-50k` |
+
+**Useful shortcuts:**
+
+```bash
+make smoke    # import check + CLI help + pytest collect (no model needed)
+make clean    # delete data/corpus/ and models/legal-bpe-50k/
+make help     # list all targets with descriptions
+```
+
+**Direct script equivalents (if you prefer not to use make):**
+
+```bash
 uv run python scripts/build_corpus.py --max-shards 10 --shard-size-mb 500
-
-# 2. Train byte-level BPE (~1-2 hours, CPU-bound)
 uv run python scripts/train_tokenizer.py
-
-# 3. Wrap into HuggingFace PreTrainedTokenizerFast
 uv run python scripts/wrap_tokenizer.py
-
-# 4. Evaluate against gpt2 + cl100k_base baselines
 uv run python scripts/eval_tokenizer.py
-
-# 5. Run the full pytest correctness + adversarial suite
 uv run pytest tests/test_tokenizer.py -v
-
-# 6. Push to Hugging Face Hub
 uv run python scripts/push_hub.py --repo YOUR_USERNAME/legal-bpe-50k
 ```
 
