@@ -31,20 +31,6 @@ ROOT = Path(__file__).resolve().parents[1]
 CORPUS_DIR = ROOT / "data" / "corpus"
 MODEL_DIR = ROOT / "models" / "legal-bpe-50k"
 
-# GPT-4 / tiktoken pre-tokenization regex.
-# Splits on word/digit/punctuation category boundaries before BPE so no merge
-# ever crosses a word boundary. This prevents O(n²) pair explosion and matches
-# production LLM tokenizer behaviour (GPT-2 → GPT-4o → Llama-3).
-GPT4_SPLIT_PATTERN = (
-    r"""'(?i:[sdmt]|ll|ve|re)"""
-    r"""|[^\r\n\p{L}\p{N}]?\p{L}+"""
-    r"""|\p{N}{1,3}"""
-    r"""| ?[^\s\p{L}\p{N}]+[\r\n]*"""
-    r"""|\s*[\r\n]"""
-    r"""|\s+(?!\S)"""
-    r"""|\s+"""
-)
-
 SPECIAL_TOKENS = ["<|endoftext|>"]
 
 
@@ -53,8 +39,8 @@ def train(vocab_size: int, min_frequency: int, corpus_dir: Path, model_dir: Path
         from tokenizers import Tokenizer  # type: ignore[import-untyped]
         from tokenizers.decoders import ByteLevel as ByteLevelDecoder
         from tokenizers.models import BPE
-        from tokenizers.pre_tokenizers import ByteLevel, Split
-        from tokenizers.pre_tokenizers import Sequence as PreTokenizerSequence
+        from tokenizers.pre_tokenizers import ByteLevel
+        from tokenizers.processors import ByteLevel as ByteLevelProcessor
         from tokenizers.trainers import BpeTrainer
     except ImportError:
         log.error("tokenizers not installed — run: uv sync")
@@ -78,22 +64,21 @@ def train(vocab_size: int, min_frequency: int, corpus_dir: Path, model_dir: Path
 
     tok = Tokenizer(BPE(unk_token=None))
 
-    # ByteLevel pre-tokenizer: converts text to byte-level representation first,
-    # then the GPT-4 regex splits on category boundaries.
-    # ByteLevel alone is sufficient for correctness; the Sequence adds regex splitting
-    # to match GPT-4-style token boundaries and prevent cross-word merges.
-    tok.pre_tokenizer = PreTokenizerSequence(
-        [
-            Split(pattern=GPT4_SPLIT_PATTERN, behavior="isolated", invert=False),
-            ByteLevel(add_prefix_space=False, use_regex=False),
-        ]
-    )
+    # ByteLevel pre-tokenizer encodes each byte as a printable character, giving
+    # 256 base tokens and guaranteeing zero UNK. The internal regex (use_regex=True,
+    # the default) already applies GPT-2-style whitespace/word-boundary splitting
+    # before BPE merges, so no separate Split pre-tokenizer is needed.
+    tok.pre_tokenizer = ByteLevel(add_prefix_space=False)
     tok.decoder = ByteLevelDecoder()
 
     trainer = BpeTrainer(
         vocab_size=vocab_size,
         min_frequency=min_frequency,
         special_tokens=SPECIAL_TOKENS,
+        # Force all 256 byte-level characters into the base vocabulary.
+        # Without this, bytes absent from the training corpus are dropped,
+        # breaking round-trips and producing UNK for unseen characters.
+        initial_alphabet=ByteLevel.alphabet(),
         show_progress=True,
     )
 
