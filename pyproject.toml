@@ -1,0 +1,17 @@
+[project]
+name = "tokenization-explainer"
+version = "0.1.0"
+description = "Beginner course: tokenization taxonomy, BPE, WordPiece, and SentencePiece"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.3.0",
+    "ipywidgets>=8.1.9",
+    "jupyterlab>=4.6.3",
+    "sentencepiece>=0.2.2",
+    "tiktoken>=0.14.0",
+    "tokenizers>=0.23.1",
+]
+
+[tool.uv]
+package = false

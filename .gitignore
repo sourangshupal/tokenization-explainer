@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.ipynb_checkpoints/
+*.egg-info/
+dist/
+build/
+artifacts/
+.DS_Store
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.jupyter/
+*.model
+*.vocab
+
+# Course corpus (force-tracked; some global gitignores exclude data/)
+!data/
+!data/tiny_corpus.txt
