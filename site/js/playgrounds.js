@@ -225,6 +225,50 @@
     return pieces;
   }
 
+  /**
+   * Glue BPE pieces: strip </w>, put spaces between words.
+   * @param {string[]} pieces
+   * @returns {string}
+   */
+  function detokenizeBpe(pieces) {
+    let out = "";
+    for (const p of pieces) {
+      if (p.endsWith("</w>")) {
+        out += p.slice(0, -"</w>".length) + " ";
+      } else {
+        out += p;
+      }
+    }
+    return out.trim();
+  }
+
+  /**
+   * Glue WordPiece pieces: strip ## and concatenate.
+   * @param {string[]} pieces
+   * @returns {string}
+   */
+  function detokenizeWordPiece(pieces) {
+    let out = "";
+    for (const p of pieces) {
+      if (p === "[UNK]") {
+        out += (out ? " " : "") + "[UNK]";
+        continue;
+      }
+      if (p.startsWith("##")) out += p.slice(2);
+      else out += (out ? " " : "") + p;
+    }
+    return out;
+  }
+
+  /**
+   * Glue SentencePiece pieces: ▁ → space.
+   * @param {string[]} pieces
+   * @returns {string}
+   */
+  function detokenizeSentencePiece(pieces) {
+    return pieces.join("").replace(/\u2581/g, " ").replace(/^ /, "");
+  }
+
   window.TokenLab = {
     chipColor,
     wordTokens,
@@ -239,5 +283,8 @@
     trainMiniBpe,
     applyMerges,
     encodeMiniBpe,
+    detokenizeBpe,
+    detokenizeWordPiece,
+    detokenizeSentencePiece,
   };
 })();

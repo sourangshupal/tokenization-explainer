@@ -42,7 +42,7 @@ from __future__ import annotations
 from collections import Counter
 from pathlib import Path
 
-from IPython.display import display
+from IPython.display import display, Markdown
 import ipywidgets as widgets
 
 def find_root() -> Path:
@@ -53,11 +53,115 @@ def find_root() -> Path:
     raise FileNotFoundError("Run the notebook from the repo root or the notebooks/ folder.")
 
 ROOT = find_root()
-CORPUS = ROOT / "data" / "tiny_corpus.txt"
+CORPUS = ROOT / "data" / "tiny_corpus.txt"          # richer file for HuggingFace / SentencePiece
+SENNRICH = ROOT / "data" / "sennrich_toy.txt"      # classic four-word set for from-scratch labs
 ARTIFACTS = ROOT / "artifacts"
+PRETRAINED = ROOT / "models" / "pretrained"
 ARTIFACTS.mkdir(exist_ok=True)
-print(f"corpus: {CORPUS}")
+print(f"course corpus: {CORPUS}")
+print(f"Sennrich toy:  {SENNRICH}")
+print()
+print("Mermaid diagrams: GitHub and JupyterLab often render ```mermaid fences.")
+print("If you see raw fences, read the flowchart as text — the algorithms still run.")
 '''.strip()
+
+MERMAID_NOTE = """
+> **Diagram tip.** If your Jupyter UI shows a raw ` ```mermaid ` fence instead of a
+> picture, that is a renderer gap (common in plain Classic Notebook). Read the
+> flowchart as text, or open the notebook on GitHub / VS Code.
+>
+> Full-page schematics (Token Lab):
+> [diagrams gallery](https://sourangshupal.github.io/tokenization-explainer/diagrams/)
+> · local `../site/diagrams/index.html`
+"""
+
+DIAGRAM_PIPELINE = """
+> Schematic: [Tokenizer pipeline](https://sourangshupal.github.io/tokenization-explainer/diagrams/01-pipeline.html)
+> · local [`../site/diagrams/01-pipeline.html`](../site/diagrams/01-pipeline.html)
+"""
+
+DIAGRAM_BPE = """
+> Schematic: [BPE train loop](https://sourangshupal.github.io/tokenization-explainer/diagrams/03-bpe-train.html)
+> · local [`../site/diagrams/03-bpe-train.html`](../site/diagrams/03-bpe-train.html)
+"""
+
+DIAGRAM_WP = """
+> Schematic: [BPE vs WordPiece](https://sourangshupal.github.io/tokenization-explainer/diagrams/04-bpe-vs-wordpiece.html)
+> · [Detokenize marks](https://sourangshupal.github.io/tokenization-explainer/diagrams/05-detokenize-marks.html)
+> · local [`../site/diagrams/`](../site/diagrams/)
+"""
+
+DIAGRAM_SP = """
+> Schematic: [Detokenize marks (▁)](https://sourangshupal.github.io/tokenization-explainer/diagrams/05-detokenize-marks.html)
+> · local [`../site/diagrams/05-detokenize-marks.html`](../site/diagrams/05-detokenize-marks.html)
+"""
+
+
+FADED_BPE = r'''
+# Faded example: you fill merge #1 after seeing merge #0 annotated.
+from collections import Counter
+
+def _pair_counts(splits: dict[str, list[str]], counts: Counter[str]) -> Counter[tuple[str, str]]:
+    pairs: Counter[tuple[str, str]] = Counter()
+    for word, freq in counts.items():
+        symbols = splits[word]
+        for left, right in zip(symbols, symbols[1:]):
+            pairs[(left, right)] += freq
+    return pairs
+
+def _apply_merge(splits: dict[str, list[str]], pair: tuple[str, str]) -> dict[str, list[str]]:
+    a, b = pair
+    glued = a + b
+    updated: dict[str, list[str]] = {}
+    for word, symbols in splits.items():
+        out: list[str] = []
+        i = 0
+        while i < len(symbols):
+            if i < len(symbols) - 1 and symbols[i] == a and symbols[i + 1] == b:
+                out.append(glued)
+                i += 2
+            else:
+                out.append(symbols[i])
+                i += 1
+        updated[word] = out
+    return updated
+
+toy = Counter({"low": 5, "lower": 2, "newest": 3, "widest": 2})
+splits0 = {w: list(w) + ["</w>"] for w in toy}
+pairs0 = _pair_counts(splits0, toy)
+best0, freq0 = pairs0.most_common(1)[0]
+print("Annotated merge 0 (already done for you):")
+print(f"  best pair {best0!r} with freq {freq0}")
+print("  → glue into", repr(best0[0] + best0[1]))
+splits1 = _apply_merge(splits0, best0)
+
+# YOUR TURN: pick the best pair after merge 0
+pairs1 = _pair_counts(splits1, toy)
+# student_pair = pairs1.most_common(1)[0][0]   # uncomment and run
+student_pair = pairs1.most_common(1)[0][0]
+print("Your merge 1 pair:", student_pair)
+
+golden_pair = pairs1.most_common(1)[0][0]
+assert student_pair == golden_pair, f"expected {golden_pair}, got {student_pair}"
+print("assert ok — merge 1 matches the golden pair")
+'''.strip()
+
+
+CAPSTONE = """
+## Capstone (after all three notebooks)
+
+Given a model card, name the tokenizer family and one consequence for length:
+
+| Card clue | Algorithm |
+|---|---|
+| BERT / `##` pieces / `[CLS]` | WordPiece |
+| GPT-4o / `cl100k` / `o200k` / tiktoken | byte-level BPE |
+| T5 / `spiece.model` / `▁` | SentencePiece (usually Unigram) |
+
+Then encode the same prompt with `tiktoken` (`o200k_base`) and estimate how many
+tokens a 4k-character English email costs vs the same email in Bengali.
+"""
+
 
 
 def bpe_notebook() -> list[nbf.NotebookNode]:
@@ -93,6 +197,8 @@ flowchart LR
   hf --> tik[tiktoken production BPE]
 ```
 """
+            + MERMAID_NOTE
+            + DIAGRAM_BPE
         ),
         md(
             """
@@ -130,14 +236,30 @@ flowchart TD
 `</w>` matters. Without it, BPE cannot tell the `st` inside `star` from the `st` at the end
 of `widest`. The end mark is a boundary.
 """
+            + MERMAID_NOTE
         ),
-        md("## Setup — paths and corpus"),
+        md("## Setup — paths and corpora"),
         code(SETUP),
+        md(
+            """
+## Two corpora (do not mix them up)
+
+| File | Role |
+|---|---|
+| `data/sennrich_toy.txt` | Classic four-word set. **From-scratch BPE below uses this.** Same default as the website lab. |
+| `data/tiny_corpus.txt` | Richer English paragraphs. **HuggingFace / SentencePiece cells use this.** |
+
+If you train on the course corpus and compare to the website Sennrich slider, merges will
+differ. That is expected — not a bug.
+"""
+        ),
         code(
             """
-text = CORPUS.read_text(encoding="utf-8")
-print("First 20 lines of the toy corpus:\\n")
-print("\\n".join(text.splitlines()[:20]))
+print("Sennrich toy:\\n")
+print(SENNRICH.read_text(encoding="utf-8"))
+print("---")
+print("Course corpus first 12 lines:\\n")
+print("\\n".join(CORPUS.read_text(encoding="utf-8").splitlines()[:12]))
 """
         ),
         md(
@@ -160,9 +282,10 @@ def load_word_counts(path: Path) -> Counter[str]:
     return counts
 
 
-word_counts = load_word_counts(CORPUS)
+word_counts = load_word_counts(SENNRICH)
 print(f"{len(word_counts)} word types, {sum(word_counts.values())} tokens")
-print("Most common:", word_counts.most_common(8))
+print("Counts:", dict(word_counts))
+print("Course-corpus types (HF later):", len(load_word_counts(CORPUS)))
 """
         ),
         code(
@@ -291,8 +414,23 @@ def encode_text(text: str, merges: list[tuple[str, str]]) -> list[str]:
 
 for sample in ["lowest", "newer", "tokenization", "unhappiness"]:
     print(f"{sample:15} → {encode_word(sample, merges)}")
+
+# Golden check — Sennrich toy (~15 merges before pairs die out)
+lowest_pieces = encode_word("lowest", merges)
+print("\\ngolden assert on lowest:", lowest_pieces)
+assert lowest_pieces == ["low", "est</w>"], lowest_pieces
+print("assert ok — lowest → low + est</w>")
 """
         ),
+        md(
+            """
+## Faded example — fill merge #1
+
+Below, merge 0 is annotated for you. Confirm merge 1 matches the golden pair (the cell
+asserts). This is the scaffolding step before you re-run `train_bpe` with other budgets.
+"""
+        ),
+        code(FADED_BPE),
         md(
             """
 ## Interactive playground
@@ -377,6 +515,10 @@ GPT-4o family. Notice how one English word is often **one** token, while a rare 
 non-English string becomes several.
 
 This is still BPE. The difference is scale and the byte-level base vocabulary.
+
+**Campus / offline note.** The first `tiktoken.get_encoding(...)` call **downloads** the
+encoding files. Do that once on a network (home wifi), then re-run offline. If the download
+is blocked in class, skip this cell and use the HuggingFace BPE section above.
 """
         ),
         code(
@@ -422,10 +564,11 @@ lot?” WordPiece (next notebook) changes that scoring rule.
 3. HuggingFace BPE used a `Whitespace` pre-tokenizer. What would break if you skipped it?
 4. Using `tiktoken`, encode your name in English and in another script. Compare token counts.
 
-Write answers in a new cell below. There are no hidden solutions in this notebook — talk
-them through in class.
+Write answers in a new cell below. Instructor golden notes live in `INSTRUCTOR.md` at the
+repo root — keep that file closed during the lab if you want an honest attempt.
 """
         ),
+        md(CAPSTONE),
     ]
 
 
@@ -457,6 +600,8 @@ flowchart LR
   greedy --> hf[HuggingFace WordPieceTrainer]
 ```
 """
+            + MERMAID_NOTE
+            + DIAGRAM_WP
         ),
         md(
             """
@@ -478,6 +623,7 @@ If `t` and `h` are already extremely common, BPE still loves merging `th` becaus
 a lot. WordPiece asks: *does `th` occur more than you'd expect from `t` and `h` alone?*
 That is why BERT pieces often look a bit more “word-like”.
 """
+            + MERMAID_NOTE
         ),
         md("## Setup"),
         code(SETUP),
@@ -496,12 +642,9 @@ Score of pair `(a, b)`:
 High score: `a` and `b` stick together more than chance. Low score: they just happen to
 sit next to each other because both are common.
 
-If you dump the whole grab-bag file into this scorer, the first merges become `qu`, `ju`,
-and then the unique word `vocabulary` — rare letters make the denominator tiny. That is
-honest WordPiece, and it is why production models train on Wikipedia-scale text. We train
-the hand-rolled model on the classic four-word toy set from the BPE paper so you can
-actually watch `low` / `lower` / `newest` / `widest`. HuggingFace on the full file comes
-later.
+**Corpus alignment.** From-scratch WordPiece uses the same classic counts as the website
+Sennrich lab (`low×5`, `lower×2`, `newest×3`, `widest×2`). HuggingFace below trains on
+`data/tiny_corpus.txt` — piece lists will differ. That is intentional.
 """
         ),
         code(
@@ -664,6 +807,11 @@ LOOKUP = set(wp_vocab)
 
 for sample in ["low", "lower", "newest", "tokenization", "unhappiness", "xyzzy"]:
     print(f"{sample:15} → {wordpiece_tokenize_word(sample, LOOKUP)}")
+
+lowest = wordpiece_tokenize_word("lowest", LOOKUP)
+print("\\ngolden assert on lowest:", lowest)
+assert lowest == ["low", "##est"], lowest
+print("assert ok — lowest → low + ##est (matches the website lab)")
 """
         ),
         md("## Interactive playground"),
@@ -807,6 +955,8 @@ BERT-compatible clone), not GPT BPE.
 2. Why does BERT use `##` instead of `</w>`? Which one makes detokenization easier?
 3. Encode `playing` and `played` with the HuggingFace WordPiece model. Did they share a stem?
 4. What should happen if you encode a character the vocab never saw? Check with `xyzzy`.
+
+Golden discussion notes: `INSTRUCTOR.md`. Capstone table is at the end of `01_bpe.ipynb`.
 """
         ),
     ]
@@ -849,6 +999,8 @@ flowchart LR
   bpe --> lib
 ```
 """
+            + MERMAID_NOTE
+            + DIAGRAM_SP
         ),
         md(
             """
@@ -867,6 +1019,7 @@ flowchart TD
   pieces --> decode["the cat sat"]
 ```
 """
+            + MERMAID_NOTE
         ),
         md("## Setup"),
         code(SETUP),
@@ -986,6 +1139,10 @@ display(box, out)
 We train two tiny models on `data/tiny_corpus.txt`: Unigram and BPE. Vocab 100 is enough
 for this English file. `byte_fallback` is off so the vocab stays small; a later cell turns
 it on for non-English text.
+
+**Install fallback.** `sentencepiece` ships a native wheel. If `uv sync` fails on your
+OS/Python combo, skip training and load
+`models/pretrained/sp_unigram_tiny.model` (checked into the repo).
 """
         ),
         code(
@@ -993,38 +1150,53 @@ it on for non-English text.
 import sentencepiece as spm
 
 unigram_prefix = ARTIFACTS / "sp_unigram"
-spm.SentencePieceTrainer.train(
-    input=str(CORPUS),
-    model_prefix=str(unigram_prefix),
-    vocab_size=100,
-    model_type="unigram",
-    character_coverage=1.0,
-    byte_fallback=False,
-    minloglevel=1,
-)
+try:
+    spm.SentencePieceTrainer.train(
+        input=str(CORPUS),
+        model_prefix=str(unigram_prefix),
+        vocab_size=100,
+        model_type="unigram",
+        character_coverage=1.0,
+        byte_fallback=False,
+        minloglevel=1,
+    )
+    model_path = str(unigram_prefix) + ".model"
+    print("trained:", model_path)
+except Exception as exc:
+    model_path = str(PRETRAINED / "sp_unigram_tiny.model")
+    print("training failed — using checked-in model:", model_path)
+    print("reason:", exc)
 
-sp_uni = spm.SentencePieceProcessor.from_file(str(unigram_prefix) + ".model")
+sp_uni = spm.SentencePieceProcessor.from_file(model_path)
 print("unigram vocab", len(sp_uni))
 print(sp_uni.encode("tokenization is the first step", return_type=str))
 print(sp_uni.encode("tokenization is the first step", return_type=int))
 print("round-trip:", sp_uni.decode(sp_uni.encode("tokenization is the first step")))
+pieces = sp_uni.encode("the cat", return_type=str)
+print("the cat →", pieces)
+assert any("\u2581" in p for p in pieces), pieces
+print("assert ok — space mark ▁ appears in pieces")
 """
         ),
         code(
             """
 bpe_prefix = ARTIFACTS / "sp_bpe"
-spm.SentencePieceTrainer.train(
-    input=str(CORPUS),
-    model_prefix=str(bpe_prefix),
-    vocab_size=100,
-    model_type="bpe",
-    character_coverage=1.0,
-    byte_fallback=False,
-    minloglevel=1,
-)
-sp_bpe = spm.SentencePieceProcessor.from_file(str(bpe_prefix) + ".model")
-print("bpe vocab", len(sp_bpe))
-print(sp_bpe.encode("tokenization is the first step", return_type=str))
+try:
+    spm.SentencePieceTrainer.train(
+        input=str(CORPUS),
+        model_prefix=str(bpe_prefix),
+        vocab_size=100,
+        model_type="bpe",
+        character_coverage=1.0,
+        byte_fallback=False,
+        minloglevel=1,
+    )
+    sp_bpe = spm.SentencePieceProcessor.from_file(str(bpe_prefix) + ".model")
+    print("bpe vocab", len(sp_bpe))
+    print(sp_bpe.encode("tokenization is the first step", return_type=str))
+except Exception as exc:
+    print("BPE train skipped:", exc)
+    print("Continue with sp_uni from the previous cell.")
 """
         ),
         md(
@@ -1152,6 +1324,8 @@ SentencePiece.
 3. Why did `বাংলা` need `byte_fallback=True` to avoid a wall of unknown characters?
 4. Sampling: run the sampling cell twice. Why would a trainer want random segmentations
    during **model** training, but greedy segmentation at **inference**?
+
+Golden notes: `INSTRUCTOR.md`. Capstone (model-card → algorithm) is in `01_bpe.ipynb`.
 """
         ),
     ]

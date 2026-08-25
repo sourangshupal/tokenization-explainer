@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detokenize marks · Token Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #fafafa;
+      --ink: #18181b;
+      --muted: #71717a;
+      --accent: #0891b2;
+      --font-sans: "Geist", system-ui, sans-serif;
+      --font-serif: "Instrument Serif", serif;
+      --font-mono: "Geist Mono", ui-monospace, monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+    .frame { max-width: 1040px; width: 100%; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+    .sub {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      max-width: 56ch;
+    }
+    svg { width: 100%; min-width: 720px; display: block; }
+    .back {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+    .back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Architecture · Token Lab / 05</p>
+    <h1>Three marks, one job</h1>
+    <p class="sub">Special symbols exist so encode → decode is reversible. They are not decoration.</p>
+
+    <svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Detokenize marks for BPE WordPiece SentencePiece">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#71717a" />
+        </marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#0891b2" />
+        </marker>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#fafafa" />
+
+      <!-- Zone: marks -->
+      <rect x="40" y="40" width="880" height="160" rx="8" fill="rgba(24,24,27,0.02)" stroke="rgba(24,24,27,0.10)" stroke-width="0.8" />
+      <rect x="56" y="44" width="72" height="12" rx="2" fill="#fafafa" />
+      <text x="92" y="53" fill="rgba(24,24,27,0.40)" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.14em">MARKS</text>
+
+      <!-- Arrows marks → decode rules -->
+      <line x1="180" y1="200" x2="180" y2="248" stroke="#71717a" stroke-width="1.2" marker-end="url(#arrow)" />
+      <line x1="480" y1="200" x2="480" y2="248" stroke="#71717a" stroke-width="1.2" marker-end="url(#arrow)" />
+      <line x1="780" y1="200" x2="780" y2="248" stroke="#71717a" stroke-width="1.2" marker-end="url(#arrow)" />
+
+      <!-- Into round-trip -->
+      <path d="M 180,328 V 352 Q 180,360 188,360 H 460"
+            fill="none" stroke="#71717a" stroke-width="1.2" marker-end="url(#arrow)" />
+      <path d="M 480,328 V 360" fill="none" stroke="#0891b2" stroke-width="1.4" marker-end="url(#arrow-accent)" />
+      <path d="M 780,328 V 352 Q 780,360 772,360 H 500"
+            fill="none" stroke="#71717a" stroke-width="1.2" marker-end="url(#arrow)" />
+
+      <!-- Mark cards -->
+      <rect x="80" y="72" width="200" height="112" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1" />
+      <text x="180" y="100" fill="#a1a1aa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">BPE</text>
+      <text x="180" y="132" fill="#18181b" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">&lt;/w&gt;</text>
+      <text x="180" y="160" fill="#71717a" font-size="11" font-family="'Geist', sans-serif" text-anchor="middle">end of word</text>
+
+      <rect x="380" y="72" width="200" height="112" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1" />
+      <text x="480" y="100" fill="#a1a1aa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">WORDPIECE</text>
+      <text x="480" y="132" fill="#18181b" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">##</text>
+      <text x="480" y="160" fill="#71717a" font-size="11" font-family="'Geist', sans-serif" text-anchor="middle">continuation</text>
+
+      <rect x="680" y="72" width="200" height="112" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1" />
+      <text x="780" y="100" fill="#a1a1aa" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">SENTENCEPIECE</text>
+      <text x="780" y="132" fill="#18181b" font-size="20" font-weight="600" font-family="'Geist Mono', monospace" text-anchor="middle">▁</text>
+      <text x="780" y="160" fill="#71717a" font-size="11" font-family="'Geist', sans-serif" text-anchor="middle">space mark</text>
+
+      <!-- Decode rules -->
+      <rect x="80" y="248" width="200" height="80" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1" />
+      <text x="180" y="280" fill="#18181b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Strip → space</text>
+      <text x="180" y="304" fill="#71717a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">low + est&lt;/w&gt;</text>
+
+      <rect x="380" y="248" width="200" height="80" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1" />
+      <text x="480" y="280" fill="#18181b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Strip ## · glue</text>
+      <text x="480" y="304" fill="#71717a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">low + ##est</text>
+
+      <rect x="680" y="248" width="200" height="80" rx="6" fill="#ffffff" stroke="#18181b" stroke-width="1" />
+      <text x="780" y="280" fill="#18181b" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">▁ → space</text>
+      <text x="780" y="304" fill="#71717a" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">▁the ▁cat</text>
+
+      <!-- Round-trip focal -->
+      <rect x="340" y="360" width="280" height="56" rx="6" fill="rgba(8,145,178,0.10)" stroke="#0891b2" stroke-width="1.4" />
+      <text x="480" y="384" fill="#0891b2" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.12em">ROUND-TRIP</text>
+      <text x="480" y="404" fill="#18181b" font-size="13" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">pieces → readable string</text>
+    </svg>
+
+    <a class="back" href="index.html">← All diagrams</a>
+  </div>
+</body>
+</html>

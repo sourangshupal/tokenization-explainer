@@ -15,7 +15,16 @@ artifacts/
 .jupyter/
 *.model
 *.vocab
+!models/pretrained/
+!models/pretrained/*.model
+!models/pretrained/*.vocab
 
-# Course corpus (force-tracked; some global gitignores exclude data/)
+# Course corpora (force-tracked; some global gitignores exclude data/)
 !data/
 !data/tiny_corpus.txt
+!data/sennrich_toy.txt
+
+# Checked-in SentencePiece fallback for install failures
+!models/
+!models/pretrained/
+!models/pretrained/**

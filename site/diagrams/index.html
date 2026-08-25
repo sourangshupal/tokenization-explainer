@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching diagrams · Token Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #fafafa;
+      --ink: #18181b;
+      --muted: #71717a;
+      --accent: #0891b2;
+      --line: rgba(24, 24, 27, 0.12);
+      --font-sans: "Geist", system-ui, sans-serif;
+      --font-serif: "Instrument Serif", serif;
+      --font-mono: "Geist Mono", ui-monospace, monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--paper);
+      color: var(--ink);
+      min-height: 100vh;
+      padding: 3rem 2rem 4rem;
+    }
+    .frame { max-width: 720px; margin: 0 auto; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .lede {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 48ch;
+      line-height: 1.6;
+    }
+    ol {
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+    li {
+      border-bottom: 1px solid var(--line);
+    }
+    a {
+      display: grid;
+      grid-template-columns: 3rem 1fr auto;
+      gap: 1rem;
+      align-items: baseline;
+      padding: 1rem 0;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    a:hover .title { color: var(--accent); }
+    .num {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+    .meta {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .kind {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .foot {
+      margin-top: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .foot a { display: inline; color: var(--accent); padding: 0; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Token Lab · Visuals</p>
+    <h1>Teaching diagrams</h1>
+    <p class="lede">Five schematics for the course. Open any one for a clean SVG you can project or share.</p>
+    <ol>
+      <li>
+        <a href="01-pipeline.html">
+          <span class="num">01</span>
+          <span>
+            <span class="title">Tokenizer pipeline</span>
+            <span class="meta">Six stages from raw text to decode</span>
+          </span>
+          <span class="kind">Flow</span>
+        </a>
+      </li>
+      <li>
+        <a href="02-granularity.html">
+          <span class="num">02</span>
+          <span>
+            <span class="title">Granularity tradeoff</span>
+            <span class="meta">Word → subword → character → byte</span>
+          </span>
+          <span class="kind">Layers</span>
+        </a>
+      </li>
+      <li>
+        <a href="03-bpe-train.html">
+          <span class="num">03</span>
+          <span>
+            <span class="title">BPE train loop</span>
+            <span class="meta">Count, pick max freq, merge, repeat</span>
+          </span>
+          <span class="kind">Flow</span>
+        </a>
+      </li>
+      <li>
+        <a href="04-bpe-vs-wordpiece.html">
+          <span class="num">04</span>
+          <span>
+            <span class="title">BPE vs WordPiece</span>
+            <span class="meta">Frequency vs likelihood score</span>
+          </span>
+          <span class="kind">Flow</span>
+        </a>
+      </li>
+      <li>
+        <a href="05-detokenize-marks.html">
+          <span class="num">05</span>
+          <span>
+            <span class="title">Detokenize marks</span>
+            <span class="meta">&lt;/w&gt;, ##, and ▁ → string</span>
+          </span>
+          <span class="kind">Arch</span>
+        </a>
+      </li>
+    </ol>
+    <p class="foot">
+      <a href="../index.html">← Token lab site</a>
+      · Tokens in <a href="STYLE.md">STYLE.md</a>
+    </p>
+  </div>
+</body>
+</html>

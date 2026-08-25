@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +8,22 @@
       name="description"
       content="Beginner lab: taxonomy of tokenization, then word, subword, character, and byte level — with live BPE, WordPiece, and SentencePiece playgrounds."
     />
+    <meta property="og:title" content="Tokenization Deep Dive" />
+    <meta
+      property="og:description"
+      content="Interactive token lab: taxonomy, OOV, UTF-8, and in-browser BPE / WordPiece / SentencePiece."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://sourangshupal.github.io/tokenization-explainer/"
+    />
+    <meta
+      property="og:image"
+      content="https://sourangshupal.github.io/tokenization-explainer/assets/og.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/og.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -51,12 +67,22 @@
             <a href="#length"><span class="nav-num">09</span> Vocab vs length</a>
           </li>
           <li>
-            <a href="#notebooks"><span class="nav-num">10</span> Notebooks</a>
+            <a href="#visuals"><span class="nav-num">10</span> Visuals</a>
+          </li>
+          <li>
+            <a href="#glossary"><span class="nav-num">11</span> Glossary</a>
+          </li>
+          <li>
+            <a href="#notebooks"><span class="nav-num">12</span> Notebooks</a>
           </li>
         </ol>
+        <div class="nav-tools">
+          <button type="button" id="theme-toggle" aria-pressed="false">Light</button>
+        </div>
         <p class="nav-note">
           Production trainers live in Jupyter.<br />
-          <code>uv run jupyter lab notebooks</code>
+          <code>uv run jupyter lab notebooks</code><br /><br />
+          <a href="https://github.com/sourangshupal/tokenization-explainer">GitHub repo</a>
         </p>
       </nav>
 
@@ -79,24 +105,32 @@
             </li>
             <li>
               <span class="kind">Lab</span>
-              <a href="#algo-labs">Byte Pair Encoding</a>
+              <a href="?tab=bpe#algo-labs">Byte Pair Encoding</a>
               <span class="kind">06</span>
             </li>
             <li>
               <span class="kind">Lab</span>
-              <a href="#algo-labs">WordPiece</a>
+              <a href="?tab=wordpiece#algo-labs">WordPiece</a>
               <span class="kind">06</span>
             </li>
             <li>
               <span class="kind">Lab</span>
-              <a href="#algo-labs">SentencePiece</a>
+              <a href="?tab=sentencepiece&amp;sp=unigram#algo-labs">SentencePiece</a>
               <span class="kind">06</span>
+            </li>
+            <li>
+              <span class="kind">Code</span>
+              <a href="#notebooks">Three Jupyter notebooks</a>
+              <span class="kind">12</span>
             </li>
           </ul>
           <p class="lede" style="margin-top: 1.6rem">
             Language models do not read letters the way you do. They read a sequence of integers
             drawn from a fixed list called a <strong>vocabulary</strong>. Tokenization is the
             contract that turns human text into those integers, and back again.
+          </p>
+          <p class="font-note">
+            If campus blocks Google Fonts, the page still works with system UI / monospace.
           </p>
         </header>
 
@@ -139,6 +173,12 @@
               IDs back to text
             </div>
           </div>
+          <p class="diagram-link">
+            Schematic:
+            <a href="diagrams/01-pipeline.html">Tokenizer pipeline</a>
+            ·
+            <a href="diagrams/02-granularity.html">Granularity layers</a>
+          </p>
 
           <p>
             The <em>granularity</em> of step 4 is the taxonomy. Each level is a different answer to
@@ -211,6 +251,11 @@
               <dd>Glue pieces back into a string. Spaces, <code>##</code>, and the SentencePiece <code>▁</code> all exist to make this reversible.</dd>
             </div>
           </dl>
+
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can name the six pipeline stages and say which one
+            chooses word vs subword vs byte.
+          </p>
         </section>
 
         <section id="lab" class="wide">
@@ -270,7 +315,19 @@
               <code>##</code>. Real BPE / WordPiece / SentencePiece learn those chunks from data —
               open Algorithm labs.
             </p>
+            <form class="quiz" data-quiz data-correct="no" data-ok="Correct — naive chunks are fixed width, not trained merges." data-bad="Naive 3-char chunks are not BPE. Real subword pieces are learned from corpus counts.">
+              <p class="quiz-q">Quick check: is the “Naive subword” pane real BPE?</p>
+              <label class="quiz-opt"><input type="radio" name="q" value="yes" /> Yes — same as GPT</label>
+              <label class="quiz-opt"><input type="radio" name="q" value="no" /> No — fixed 3-char teaching chunks</label>
+              <button type="submit">Check</button>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </form>
           </div>
+
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can explain why the byte column is longer than the
+            character column for <code>👋</code>.
+          </p>
         </section>
 
         <section id="word" class="wide">
@@ -295,11 +352,13 @@
             <textarea id="oov-vocab" rows="2">the cat sat on the mat</textarea>
             <label for="oov-probe">Probe sentence</label>
             <input id="oov-probe" type="text" value="the dog sat on the mat" />
+            <p id="oov-predict" class="predict-prompt" hidden></p>
+            <button type="button" id="oov-reveal">Reveal [UNK]s</button>
             <div class="pane pane-fixed" style="margin-top: 0.8rem">
               <div class="pane-head">
                 <h4>Word IDs after lookup</h4>
               </div>
-              <div class="chips" id="oov-chips"></div>
+              <div class="chips is-hidden" id="oov-chips"></div>
             </div>
             <p id="oov-note" class="algo-rule"></p>
           </div>
@@ -308,6 +367,10 @@
             Try replacing <em>dog</em> with <em>cats</em>, a name, or a Bengali word. Word-level
             tokenization has no way to reuse letters it already knows. That single failure is why
             modern LLMs are not word tokenizers.
+          </p>
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can say why <code>cat</code> and <code>cats</code> are
+            unrelated IDs under word-level tokenization.
           </p>
         </section>
 
@@ -334,6 +397,24 @@
               <dd>Treat the raw string as the unit (spaces become the character <code>▁</code>). Unigram LM or BPE. T5, ALBERT, many multilingual models.</dd>
             </div>
           </dl>
+          <div class="callout">
+            <strong>Misconception to kill.</strong> BPE pieces are not guaranteed morphemes.
+            <code>est</code> appears because the pair was frequent, not because English has a
+            comparative suffix. Probe <code>star</code> vs <code>widest</code> with and without
+            <code>&lt;/w&gt;</code> in mind.
+          </div>
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can name the scoring rule for each of the three
+            algorithms in one sentence.
+          </p>
+          <p class="diagram-link">
+            Schematic:
+            <a href="diagrams/03-bpe-train.html">BPE train loop</a>
+            ·
+            <a href="diagrams/04-bpe-vs-wordpiece.html">BPE vs WordPiece score</a>
+            ·
+            <a href="diagrams/05-detokenize-marks.html">Detokenize marks</a>
+          </p>
         </section>
 
         <section id="algo-labs" class="wide">
@@ -341,7 +422,8 @@
           <p>
             One corpus. Three trainers. Drag the slider, then encode a probe. These are teaching
             implementations in the browser — the notebooks run HuggingFace <code>tokenizers</code>
-            and <code>sentencepiece</code> 0.2.2.
+            and <code>sentencepiece</code> 0.2.2. Share a tab:
+            <a href="?tab=wordpiece#algo-labs"><code>?tab=wordpiece#algo-labs</code></a>.
           </p>
 
           <div class="lab">
@@ -361,6 +443,19 @@
               <button type="button" data-sp-mode="bpe" aria-pressed="false">BPE mode</button>
             </div>
 
+            <div class="row" role="group" aria-label="Corpus presets">
+              <button type="button" class="preset" data-corpus="sennrich" aria-pressed="true">Sennrich toy</button>
+              <button type="button" class="preset" data-corpus="course" aria-pressed="false">Course corpus</button>
+              <button type="button" id="predict-toggle" aria-pressed="true">Predict on</button>
+            </div>
+            <p class="corpus-note">
+              <strong>Sennrich toy</strong> = four word types (<code>low</code> / <code>lower</code> /
+              <code>newest</code> / <code>widest</code>) so WordPiece can form
+              <code>low</code> + <code>##est</code>. <strong>Course corpus</strong> matches
+              <code>data/tiny_corpus.txt</code> used by HuggingFace / SentencePiece cells in the
+              notebooks — merges will differ. That is expected.
+            </p>
+
             <label for="algo-corpus">Corpus</label>
             <textarea id="algo-corpus" rows="4">low low low low low
 lower lower
@@ -371,11 +466,14 @@ widest widest</textarea>
               <label for="algo-step"><span id="algo-step-caption">Merges</span>: <strong id="algo-step-value">8</strong></label>
               <input id="algo-step" type="range" min="0" max="20" value="8" />
             </div>
+            <p id="algo-step-hint" class="slider-hint">Slider 0–20 = number of merge steps</p>
 
             <label for="algo-probe">Probe</label>
             <input id="algo-probe" type="text" value="lowest newest unhappiness" />
 
             <p class="algo-rule" id="algo-rule"></p>
+            <p id="algo-predict" class="predict-prompt" hidden></p>
+            <button type="button" id="algo-reveal" hidden>Reveal pieces</button>
 
             <div class="pane pane-fixed">
               <div class="pane-head">
@@ -384,15 +482,27 @@ widest widest</textarea>
               </div>
               <div class="chips" id="algo-chips"></div>
             </div>
+            <p id="algo-decode" class="decode-line"></p>
             <pre class="merge-log" id="algo-log"></pre>
           </div>
 
+          <h3>Same probe, three encodings</h3>
+          <p>
+            Frozen to the corpus, slider, and probe above. Switch SentencePiece Unigram/BPE with
+            the mode buttons — the third column follows.
+          </p>
+          <div class="grid-3" id="compare-panes"></div>
+
           <div class="callout">
             Default corpus is the Sennrich toy set so WordPiece can form <code>low</code> +
-            <code>##est</code>. Paste a messier paragraph and watch WordPiece prefer rare pairs
+            <code>##est</code>. Paste the course corpus and watch WordPiece prefer rare pairs
             like <code>qu</code> — that is the likelihood score doing its job, and why production
             models train on huge text.
           </div>
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can point at the compare row and say why the three
+            piece lists differ on the same string.
+          </p>
         </section>
 
         <section id="character">
@@ -417,6 +527,15 @@ widest widest</textarea>
               be 4 or 5 code points depending on composition.
             </li>
           </ul>
+          <p>
+            Prove it now in the
+            <a href="#byte">UTF-8 inspector</a>
+            (presets: <code>café</code>, emoji, Bengali, combining acute).
+          </p>
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you know <code>"👋".length</code> in JS is not “one
+            character”.
+          </p>
         </section>
 
         <section id="byte" class="wide">
@@ -464,6 +583,10 @@ widest widest</textarea>
               </table>
             </div>
           </div>
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can read one row of the inspector and separate
+            grapheme / code point / byte counts.
+          </p>
         </section>
 
         <section id="length" class="wide">
@@ -482,14 +605,90 @@ widest widest</textarea>
             <div id="length-bars"></div>
             <p id="length-legend" class="algo-rule"></p>
           </div>
+          <p class="exit-ticket">
+            <strong>Leave when:</strong> you can say which bar is <em>not</em> a production
+            tokenizer and why context windows care about the others.
+          </p>
+          <p class="diagram-link">
+            Schematic:
+            <a href="diagrams/02-granularity.html">Vocab vs length layers</a>
+          </p>
+        </section>
+
+        <section id="visuals">
+          <h2>Visuals</h2>
+          <p>
+            Five printable schematics (Token Lab cyan on light paper). Open full-page for
+            projectors — better than mermaid fences when Jupyter does not render diagrams.
+          </p>
+          <div class="notebooks">
+            <div class="nb">
+              <strong><a href="diagrams/01-pipeline.html">01 · Tokenizer pipeline</a></strong>
+              <span>Raw → normalize → pre-tokenize → model → IDs → decode</span>
+            </div>
+            <div class="nb">
+              <strong><a href="diagrams/02-granularity.html">02 · Granularity tradeoff</a></strong>
+              <span>Word / subword / character / byte layers</span>
+            </div>
+            <div class="nb">
+              <strong><a href="diagrams/03-bpe-train.html">03 · BPE train loop</a></strong>
+              <span>Count pairs, pick max frequency, merge, repeat</span>
+            </div>
+            <div class="nb">
+              <strong><a href="diagrams/04-bpe-vs-wordpiece.html">04 · BPE vs WordPiece</a></strong>
+              <span>Frequency vs likelihood score, then shared glue</span>
+            </div>
+            <div class="nb">
+              <strong><a href="diagrams/05-detokenize-marks.html">05 · Detokenize marks</a></strong>
+              <span><code>&lt;/w&gt;</code>, <code>##</code>, and <code>▁</code> → string</span>
+            </div>
+          </div>
+          <p style="margin-top: 1rem">
+            Gallery:
+            <a href="diagrams/index.html">diagrams/</a>
+          </p>
+        </section>
+
+        <section id="glossary">
+          <h2>Glossary</h2>
+          <dl class="dl glossary">
+            <div>
+              <dt>OOV / [UNK]</dt>
+              <dd>Out of vocabulary. English: unknown word. বাংলা: অজানা শব্দ — the model sees a hole.</dd>
+            </div>
+            <div>
+              <dt>Type</dt>
+              <dd>A distinct vocabulary entry (the string), not each occurrence in a sentence.</dd>
+            </div>
+            <div>
+              <dt>Merge</dt>
+              <dd>BPE / WordPiece training step that glues two adjacent symbols into one new piece.</dd>
+            </div>
+            <div>
+              <dt><code>##</code></dt>
+              <dd>WordPiece continuation mark. <code>##est</code> continues a word; it does not start one.</dd>
+            </div>
+            <div>
+              <dt><code>&lt;/w&gt;</code></dt>
+              <dd>BPE end-of-word mark. Distinguishes the <code>st</code> in <code>star</code> from the end of <code>widest</code>.</dd>
+            </div>
+            <div>
+              <dt><code>▁</code> (U+2581)</dt>
+              <dd>SentencePiece space mark — not a plain underscore. Decoding turns each <code>▁</code> into a space.</dd>
+            </div>
+            <div>
+              <dt>NFKC</dt>
+              <dd>Unicode normalization form. Makes compatibility-equivalent characters look the same before training.</dd>
+            </div>
+          </dl>
         </section>
 
         <section id="notebooks">
           <h2>Next: three algorithms in Jupyter</h2>
           <p>
             The labs above are intuition. The notebooks build the machines. Each one starts from
-            scratch on <code>data/tiny_corpus.txt</code>, then repeats the same idea with the
-            current PyPI libraries via <code>uv</code>.
+            scratch on the Sennrich toy (or a tiny Viterbi demo), then repeats the same idea on
+            <code>data/tiny_corpus.txt</code> with the current PyPI libraries via <code>uv</code>.
           </p>
           <div class="notebooks">
             <div class="nb">
@@ -510,13 +709,37 @@ widest widest</textarea>
             <code>uv sync</code><br />
             <code>uv run jupyter lab notebooks</code>
           </div>
+          <p>
+            Repo:
+            <a href="https://github.com/sourangshupal/tokenization-explainer"
+              >github.com/sourangshupal/tokenization-explainer</a
+            >
+            · Live site:
+            <a href="https://sourangshupal.github.io/tokenization-explainer/"
+              >sourangshupal.github.io/tokenization-explainer</a
+            >
+            · Capstone after notebook 03: given a model card (BERT vs GPT-4o vs T5), name the
+            algorithm and compare a <code>tiktoken</code> length on a real prompt.
+          </p>
+          <p>
+            If <code>sentencepiece</code> fails to install on your machine, load the checked-in
+            model at <code>models/pretrained/sp_unigram_tiny.model</code> and skip training — see
+            the SentencePiece notebook.
+          </p>
         </section>
 
         <footer>
-          Tokenization — teaching site. Open this file directly or serve the site/ folder.
+          Tokenization teaching site ·
+          <a href="https://github.com/sourangshupal/tokenization-explainer">GitHub</a>
+          ·
+          <a href="https://github.com/sourangshupal/tokenization-explainer/tree/main/notebooks"
+            >Notebooks</a
+          >
+          · MIT
         </footer>
       </main>
     </div>
+    <script src="js/corpora.js"></script>
     <script src="js/playgrounds.js"></script>
     <script src="js/algorithms.js"></script>
     <script src="js/main.js"></script>

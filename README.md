@@ -12,6 +12,12 @@ Interactive course for AI engineers: a static **token lab** in the browser, then
 
 **[Open the live site](https://sourangshupal.github.io/tokenization-explainer/)** — no install. All playgrounds run in your browser.
 
+Deep links for class chat:
+
+- [BPE lab](https://sourangshupal.github.io/tokenization-explainer/?tab=bpe#algo-labs)
+- [WordPiece lab](https://sourangshupal.github.io/tokenization-explainer/?tab=wordpiece#algo-labs)
+- [SentencePiece lab](https://sourangshupal.github.io/tokenization-explainer/?tab=sentencepiece&sp=unigram#algo-labs)
+
 <p align="center">
   <img src="assets/readme/hero.png" alt="Token lab homepage: numbered syllabus and taxonomy" width="100%">
 </p>
@@ -20,10 +26,12 @@ Interactive course for AI engineers: a static **token lab** in the browser, then
 
 | Surface | Runs where | What students do |
 |---|---|---|
-| [Live site](https://sourangshupal.github.io/tokenization-explainer/) | GitHub Pages (static HTML/JS) | Taxonomy, four-way splitter, OOV trap, UTF-8 inspector, in-browser BPE / WordPiece / SentencePiece |
+| [Live site](https://sourangshupal.github.io/tokenization-explainer/) | GitHub Pages (static HTML/JS) | Taxonomy, four-way splitter, OOV trap, UTF-8 inspector, in-browser BPE / WordPiece / SentencePiece, compare row, predict-then-reveal |
 | Jupyter notebooks | Local Python 3.12 + uv | Same algorithms from scratch, then HuggingFace `tokenizers` 0.23.1, `sentencepiece` 0.2.2, `tiktoken` 0.14.0 |
 
 The website does **not** need Python. Notebooks do **not** run on GitHub Pages.
+
+Instructors: see [`INSTRUCTOR.md`](INSTRUCTOR.md) for the 90-minute script and golden answers.
 
 ## Syllabus
 
@@ -32,6 +40,15 @@ The website does **not** need Python. Notebooks do **not** run on GitHub Pages.
 3. Byte Pair Encoding — site lab + `notebooks/01_bpe.ipynb`
 4. WordPiece — site lab + `notebooks/02_wordpiece.ipynb`
 5. SentencePiece — site lab + `notebooks/03_sentencepiece.ipynb`
+
+## Two corpora (important)
+
+| File | Used by |
+|---|---|
+| [`data/sennrich_toy.txt`](data/sennrich_toy.txt) | Website **Sennrich toy** preset; from-scratch BPE / WordPiece in notebooks |
+| [`data/tiny_corpus.txt`](data/tiny_corpus.txt) | Website **Course corpus** preset; HuggingFace / SentencePiece training cells |
+
+Same probe (`lowest`) can produce different merges across the two files. That is expected.
 
 ## Live playgrounds
 
@@ -50,14 +67,32 @@ Same corpus, three trainers. Switch **BPE**, **WordPiece**, and **SentencePiece*
 | Lab | What it teaches |
 |---|---|
 | Four-way splitter | How token *count* explodes as units get smaller |
-| OOV trap | Word-level `[UNK]` when a type was never in the vocab |
+| OOV trap | Word-level `[UNK]` when a type was never in the vocab (predict, then reveal) |
 | UTF-8 inspector | Graphemes vs code points vs bytes (emoji, Indic, Japanese) |
-| Length bars | Vocab size vs sequence length |
-| BPE tab | Max pair frequency, `</w>` end-of-word mark |
+| Length bars | Vocab size vs sequence length (**naive 3-char is labeled — not BPE**) |
+| BPE tab | Max pair frequency, `</w>` end-of-word mark, round-trip decode |
 | WordPiece tab | Score `freq(ab)/(freq(a)·freq(b))`, greedy `##` encode |
 | SentencePiece tab | Unigram Viterbi with `▁`, or BPE with no whitespace split |
+| Compare row | Same probe under all three algorithms at once |
 
-Default teaching corpus is the Sennrich toy set (`low` / `lower` / `newest` / `widest`). WordPiece on that set encodes `lowest` as `low` + `##est`.
+Default teaching corpus is the Sennrich toy set. WordPiece on that set encodes `lowest` as `low` + `##est`.
+
+Projector tip: use the **Light** theme toggle in the nav.
+
+## Teaching diagrams
+
+Full-page SVG schematics (Token Lab cyan on light paper) — better for projectors than mermaid fences:
+
+| Diagram | URL |
+|---|---|
+| Gallery | https://sourangshupal.github.io/tokenization-explainer/diagrams/ |
+| Tokenizer pipeline | [01-pipeline.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/01-pipeline.html) |
+| Granularity layers | [02-granularity.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/02-granularity.html) |
+| BPE train loop | [03-bpe-train.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/03-bpe-train.html) |
+| BPE vs WordPiece | [04-bpe-vs-wordpiece.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/04-bpe-vs-wordpiece.html) |
+| Detokenize marks | [05-detokenize-marks.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/05-detokenize-marks.html) |
+
+Local path: `site/diagrams/`.
 
 ## Quickstart (notebooks)
 
@@ -74,11 +109,16 @@ Work through the notebooks in order:
 
 | Notebook | Topic |
 |---|---|
-| [`notebooks/01_bpe.ipynb`](notebooks/01_bpe.ipynb) | Frequency BPE from scratch, HuggingFace `BpeTrainer`, then `tiktoken` (`cl100k_base`, `o200k_base`) |
+| [`notebooks/01_bpe.ipynb`](notebooks/01_bpe.ipynb) | Frequency BPE from scratch (Sennrich), HuggingFace `BpeTrainer` (course corpus), then `tiktoken` |
 | [`notebooks/02_wordpiece.ipynb`](notebooks/02_wordpiece.ipynb) | Likelihood WordPiece from scratch, `##` continuation, `WordPieceTrainer` |
 | [`notebooks/03_sentencepiece.ipynb`](notebooks/03_sentencepiece.ipynb) | Unigram Viterbi intuition, then `sentencepiece` 0.2.2 (`return_type=`, not deprecated `out_type`) |
 
-Each notebook trains only on [`data/tiny_corpus.txt`](data/tiny_corpus.txt). Written models go to `artifacts/` (gitignored).
+Each production trainer uses [`data/tiny_corpus.txt`](data/tiny_corpus.txt). Written models go to `artifacts/` (gitignored).
+
+**Network notes**
+
+- First `tiktoken.get_encoding(...)` **downloads** encoding files — do that once on a network before an offline lab.
+- If `sentencepiece` fails to install, load [`models/pretrained/sp_unigram_tiny.model`](models/pretrained/sp_unigram_tiny.model) and skip training (see notebook).
 
 Local site (optional; the Pages URL is enough for class):
 
@@ -86,7 +126,14 @@ Local site (optional; the Pages URL is enough for class):
 uv run python -m http.server 8000 --directory site
 ```
 
-Then open `http://localhost:8000`. You can also open `site/index.html` directly.
+Then open `http://localhost:8000`. You can also open `site/index.html` directly (`file://` works).
+
+## Regression checks
+
+```bash
+node tests/golden_algos.mjs
+uv run python scripts/build_notebooks.py
+```
 
 ## Project layout
 
@@ -95,12 +142,18 @@ tokenization-explainer/
 ├── site/                      # GitHub Pages root (static)
 │   ├── index.html
 │   ├── css/main.css
-│   └── js/                    # playgrounds.js → algorithms.js → main.js
+│   ├── assets/og.png
+│   ├── diagrams/              # five teaching schematics + STYLE.md
+│   └── js/                    # corpora → playgrounds → algorithms → main
 ├── notebooks/                 # 01 BPE, 02 WordPiece, 03 SentencePiece
-├── data/tiny_corpus.txt       # shared toy corpus
-├── scripts/build_notebooks.py # regenerates the three notebooks
+├── data/sennrich_toy.txt      # classic four-word set
+├── data/tiny_corpus.txt       # richer course corpus
+├── models/pretrained/         # fallback SentencePiece model
+├── scripts/build_notebooks.py
+├── tests/golden_algos.mjs
+├── INSTRUCTOR.md
 ├── assets/readme/             # README screenshots
-├── pyproject.toml             # uv dependencies
+├── pyproject.toml
 └── .github/workflows/pages.yml
 ```
 
@@ -121,7 +174,7 @@ SentencePiece 0.2.2: use `encode(..., return_type=str)` and `SentencePieceProces
 
 The site is static. GitHub Actions (`.github/workflows/pages.yml`) uploads the `site/` folder on every push to `main`. No Jekyll (`.nojekyll`).
 
-Notebooks, `uv`, and trained `.model` files are **not** part of Pages.
+Notebooks, `uv`, and trained `.model` files under `artifacts/` are **not** part of Pages. The checked-in pretrained model under `models/pretrained/` is for local notebook fallback only.
 
 ## License
 
