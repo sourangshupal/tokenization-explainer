@@ -145,7 +145,7 @@ tokenization-explainer/
 │   ├── assets/og.png
 │   ├── diagrams/              # five teaching schematics + STYLE.md
 │   └── js/                    # corpora → playgrounds → algorithms → main
-├── notebooks/                 # 01 BPE, 02 WordPiece, 03 SentencePiece
+├── notebooks/                 # 01 BPE, 02 WordPiece, 03 SentencePiece + lab_display.py
 ├── data/sennrich_toy.txt      # classic four-word set
 ├── data/tiny_corpus.txt       # richer course corpus
 ├── models/pretrained/         # fallback SentencePiece model
@@ -167,6 +167,7 @@ Resolved from PyPI; see `uv.lock`.
 | `sentencepiece` 0.2.2 | Google SentencePiece (pybind11 API) |
 | `tiktoken` 0.14.0 | Production byte-level BPE (OpenAI models) |
 | `jupyterlab` 4.6.3, `ipykernel`, `ipywidgets` | Notebooks and live widgets |
+| `rich` 15.0.0 | Jupyter tables, colored token chips, Mix-cell explainer |
 
 SentencePiece 0.2.2: use `encode(..., return_type=str)` and `SentencePieceProcessor.from_file(...)`. Do not use deprecated `out_type` or `EncodeAsImmutableProto`.
 
@@ -175,6 +176,88 @@ SentencePiece 0.2.2: use `encode(..., return_type=str)` and `SentencePieceProces
 The site is static. GitHub Actions (`.github/workflows/pages.yml`) uploads the `site/` folder on every push to `main`. No Jekyll (`.nojekyll`).
 
 Notebooks, `uv`, and trained `.model` files under `artifacts/` are **not** part of Pages. The checked-in pretrained model under `models/pretrained/` is for local notebook fallback only.
+
+---
+
+## Production Tokenizer (`production` branch)
+
+The `production` branch trains a **byte-level BPE tokenizer on legal English** and publishes it to the Hugging Face Hub as a drop-in `AutoTokenizer`.
+
+> **Branch strategy:** `main` is the teaching course — untouched. All production work lives on `production`.
+
+### Why legal English?
+
+Domain-adapted BPE uses **9–17% fewer tokens** than GPT-4o/Llama-3 on legal documents (KL3M, 2025). Specialized terms like `certiorari`, `indemnification`, and `subrogation` each become **one token** instead of 3–5.
+
+### Quickstart (after corpus + training)
+
+```bash
+git checkout production
+uv sync
+
+# 1. Download and shard the FreeLaw corpus (~30-45 min, I/O-bound)
+uv run python scripts/build_corpus.py --max-shards 10 --shard-size-mb 500
+
+# 2. Train byte-level BPE (~1-2 hours, CPU-bound)
+uv run python scripts/train_tokenizer.py
+
+# 3. Wrap into HuggingFace PreTrainedTokenizerFast
+uv run python scripts/wrap_tokenizer.py
+
+# 4. Evaluate against gpt2 + cl100k_base baselines
+uv run python scripts/eval_tokenizer.py
+
+# 5. Run the full pytest correctness + adversarial suite
+uv run pytest tests/test_tokenizer.py -v
+
+# 6. Push to Hugging Face Hub
+uv run python scripts/push_hub.py --repo YOUR_USERNAME/legal-bpe-50k
+```
+
+### One-liner load (after Hub push)
+
+```python
+from transformers import AutoTokenizer
+tok = AutoTokenizer.from_pretrained("YOUR_USERNAME/legal-bpe-50k")
+```
+
+### Target evaluation results
+
+| Metric | legal-bpe-50k (target) | gpt2 | cl100k_base |
+|---|---|---|---|
+| Vocab size | 50,257 | 50,257 | 100,277 |
+| Fertility (tokens/word) on legal | < 1.8 | ~2.2 | ~1.9 |
+| Domain-term single-token rate | > 40% | < 10% | < 15% |
+| Round-trip pass rate | 100% | 100% | 100% |
+| UNK-free on arbitrary UTF-8 | yes | no | yes |
+| Renyi efficiency (a=2) | measure + report | baseline | compare |
+
+### Scripts
+
+| Script | Purpose |
+|---|---|
+| `scripts/build_corpus.py` | Stream FreeLaw from HF Hub, filter, dedup, shard to `data/corpus/` |
+| `scripts/train_tokenizer.py` | ByteLevel BPE + GPT-4 regex pre-tokenizer, saves `tokenizer.json` |
+| `scripts/wrap_tokenizer.py` | Wraps into `PreTrainedTokenizerFast`, calls `save_pretrained` |
+| `scripts/eval_tokenizer.py` | TokEval metrics suite: fertility, Renyi, domain terms, digit alignment |
+| `scripts/push_hub.py` | HF login + `push_to_hub` |
+| `tests/test_tokenizer.py` | pytest suite: round-trip, UNK-free, adversarial battery (TokTier) |
+
+### Training time
+
+BPE training is **CPU-bound** -- GPUs sit idle during merge learning.
+
+| Phase | Estimated time |
+|---|---|
+| Corpus download + sharding (10 shards) | 30-45 min |
+| BPE training (Rust, all cores, 5 GB corpus) | 1-2 hours |
+| Wrap + eval + push | ~15 min |
+
+GPUs are useful for the optional downstream proxy evaluation (train a 10M-param GPT on the vocabulary and compare bits-per-byte).
+
+### Gitignored artifacts
+
+`data/corpus/` and `models/legal-bpe-50k/` are both `.gitignore`d -- they are large and reproducible. Only scripts and tests are committed.
 
 ## License
 

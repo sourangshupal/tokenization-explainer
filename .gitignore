@@ -28,3 +28,8 @@ artifacts/
 !models/
 !models/pretrained/
 !models/pretrained/**
+
+# Production tokenizer pipeline — large files, gitignored
+data/corpus/
+models/legal-bpe-50k/
+
