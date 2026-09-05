@@ -47,11 +47,16 @@ def join_title_abstract(title: str, abstract: str) -> str | None:
 
 
 def stream_hf_parquet(max_docs: int) -> Iterator[dict[str, str]]:
-    """Stream title/abstract rows from a parquet Hub dataset."""
+    """Download title/abstract rows from a parquet Hub dataset.
+
+    Uses streaming=False (full Parquet download) to avoid [Errno 9] Bad file
+    descriptor errors caused by fsspec seek() on non-seekable network streams.
+    Dataset is cached locally after the first run.
+    """
     from datasets import load_dataset
 
-    print(f"streaming {HF_PARQUET_ID}", flush=True)
-    dataset = load_dataset(HF_PARQUET_ID, split="train", streaming=True)
+    print(f"downloading {HF_PARQUET_ID} (cached after first run)...", flush=True)
+    dataset = load_dataset(HF_PARQUET_ID, split="train", streaming=False)
     yielded = 0
     for row in dataset:
         rec = dict(row)

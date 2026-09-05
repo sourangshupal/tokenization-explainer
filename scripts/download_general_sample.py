@@ -22,11 +22,17 @@ MIN_CHARS = 200  # skip stubs / section headings
 
 
 def stream_wikitext(total: int) -> Iterator[dict[str, str]]:
-    """Yield {text: ...} dicts from wikitext-103 train split."""
+    """Yield {text: ...} dicts from wikitext-103 train split.
+
+    Uses streaming=False (full Parquet download) to avoid [Errno 9] Bad file
+    descriptor errors that occur when fsspec tries to seek on a non-seekable
+    network stream in some environments.  The Parquet files are cached by
+    datasets so subsequent runs are instant.
+    """
     from datasets import load_dataset
 
-    print(f"streaming {HF_DATASET_ID}/{HF_CONFIG}", flush=True)
-    ds = load_dataset(HF_DATASET_ID, HF_CONFIG, split="train", streaming=True)
+    print(f"downloading {HF_DATASET_ID}/{HF_CONFIG} train split (cached after first run)...", flush=True)
+    ds = load_dataset(HF_DATASET_ID, HF_CONFIG, split="train", streaming=False)
     yielded = 0
     scanned = 0
     for row in ds:
