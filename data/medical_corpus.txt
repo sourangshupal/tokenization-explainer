@@ -1,0 +1,840 @@
+The phrase empagliflozin 10 mg daily appears in note 1 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 2 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 3 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 4 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 5 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 6 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 7 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 8 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 9 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 10 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 11 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase empagliflozin 10 mg daily appears in note 12 of the teaching corpus.
+Clinician wrote: empagliflozin 10 mg daily.
+The phrase acetylcholinesterase inhibitor appears in note 1 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 2 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 3 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 4 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 5 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 6 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 7 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 8 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 9 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 10 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 11 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase acetylcholinesterase inhibitor appears in note 12 of the teaching corpus.
+Clinician wrote: acetylcholinesterase inhibitor.
+The phrase BRCA1 pathogenic variant appears in note 1 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 2 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 3 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 4 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 5 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 6 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 7 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 8 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 9 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 10 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 11 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase BRCA1 pathogenic variant appears in note 12 of the teaching corpus.
+Clinician wrote: BRCA1 pathogenic variant.
+The phrase ICD-10-CM E11.65 appears in note 1 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 2 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 3 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 4 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 5 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 6 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 7 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 8 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 9 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 10 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 11 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase ICD-10-CM E11.65 appears in note 12 of the teaching corpus.
+Clinician wrote: ICD-10-CM E11.65.
+The phrase serum creatinine 1.4 mg/dL appears in note 1 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 2 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 3 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 4 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 5 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 6 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 7 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 8 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 9 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 10 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 11 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase serum creatinine 1.4 mg/dL appears in note 12 of the teaching corpus.
+Clinician wrote: serum creatinine 1.4 mg/dL.
+The phrase β-lactam allergy appears in note 1 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 2 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 3 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 4 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 5 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 6 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 7 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 8 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 9 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 10 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 11 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase β-lactam allergy appears in note 12 of the teaching corpus.
+Clinician wrote: β-lactam allergy.
+The phrase community-acquired pneumonia appears in note 1 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 2 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 3 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 4 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 5 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 6 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 7 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 8 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 9 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 10 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 11 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase community-acquired pneumonia appears in note 12 of the teaching corpus.
+Clinician wrote: community-acquired pneumonia.
+The phrase left lower lobe consolidation appears in note 1 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 2 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 3 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 4 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 5 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 6 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 7 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 8 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 9 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 10 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 11 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase left lower lobe consolidation appears in note 12 of the teaching corpus.
+Clinician wrote: left lower lobe consolidation.
+The phrase Naïve CD4+ T cells appears in note 1 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 2 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 3 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 4 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 5 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 6 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 7 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 8 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 9 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 10 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 11 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase Naïve CD4+ T cells appears in note 12 of the teaching corpus.
+Clinician wrote: Naïve CD4+ T cells.
+The phrase COVID-19 mRNA vaccine appears in note 1 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 2 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 3 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 4 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 5 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 6 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 7 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 8 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 9 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 10 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 11 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase COVID-19 mRNA vaccine appears in note 12 of the teaching corpus.
+Clinician wrote: COVID-19 mRNA vaccine.
+The phrase metformin 1000 mg twice daily appears in note 1 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 2 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 3 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 4 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 5 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 6 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 7 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 8 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 9 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 10 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 11 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase metformin 1000 mg twice daily appears in note 12 of the teaching corpus.
+Clinician wrote: metformin 1000 mg twice daily.
+The phrase hemoglobin A1c 8.2% appears in note 1 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 2 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 3 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 4 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 5 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 6 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 7 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 8 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 9 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 10 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 11 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase hemoglobin A1c 8.2% appears in note 12 of the teaching corpus.
+Clinician wrote: hemoglobin A1c 8.2%.
+The phrase troponin I elevated appears in note 1 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 2 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 3 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 4 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 5 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 6 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 7 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 8 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 9 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 10 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 11 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase troponin I elevated appears in note 12 of the teaching corpus.
+Clinician wrote: troponin I elevated.
+The phrase NT-proBNP 4200 pg/mL appears in note 1 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 2 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 3 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 4 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 5 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 6 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 7 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 8 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 9 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 10 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 11 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase NT-proBNP 4200 pg/mL appears in note 12 of the teaching corpus.
+Clinician wrote: NT-proBNP 4200 pg/mL.
+The phrase levothyroxine 75 μg daily appears in note 1 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 2 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 3 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 4 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 5 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 6 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 7 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 8 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 9 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 10 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 11 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase levothyroxine 75 μg daily appears in note 12 of the teaching corpus.
+Clinician wrote: levothyroxine 75 μg daily.
+The phrase vancomycin trough 18 μg/mL appears in note 1 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 2 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 3 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 4 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 5 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 6 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 7 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 8 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 9 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 10 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 11 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase vancomycin trough 18 μg/mL appears in note 12 of the teaching corpus.
+Clinician wrote: vancomycin trough 18 μg/mL.
+The phrase ST-elevation myocardial infarction appears in note 1 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 2 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 3 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 4 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 5 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 6 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 7 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 8 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 9 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 10 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 11 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase ST-elevation myocardial infarction appears in note 12 of the teaching corpus.
+Clinician wrote: ST-elevation myocardial infarction.
+The phrase chronic kidney disease stage 4 appears in note 1 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 2 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 3 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 4 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 5 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 6 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 7 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 8 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 9 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 10 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 11 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase chronic kidney disease stage 4 appears in note 12 of the teaching corpus.
+Clinician wrote: chronic kidney disease stage 4.
+The phrase HER2-negative breast cancer appears in note 1 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 2 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 3 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 4 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 5 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 6 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 7 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 8 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 9 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 10 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 11 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase HER2-negative breast cancer appears in note 12 of the teaching corpus.
+Clinician wrote: HER2-negative breast cancer.
+The phrase oseltamivir 75 mg twice daily appears in note 1 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 2 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 3 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 4 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 5 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 6 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 7 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 8 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 9 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 10 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 11 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+The phrase oseltamivir 75 mg twice daily appears in note 12 of the teaching corpus.
+Clinician wrote: oseltamivir 75 mg twice daily.
+Plan: continue empagliflozin 10 mg daily. Monitor serum creatinine 1.4 mg/dL.
+Assessment: ICD-10-CM E11.65 type 2 diabetes mellitus with hyperglycemia. Medications include empagliflozin 10 mg daily.
+Labs today: serum creatinine 1.4 mg/dL. Genetics note: BRCA1 pathogenic variant identified on germline testing.
+Hospital day 3: Discharge summary: empagliflozin 10 mg daily continued for heart failure and diabetes.
+Reconcile home meds: empagliflozin 10 mg daily; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM E11.65 type 2 diabetes mellitus with hyperglycemia. Recheck serum creatinine 1.4 mg/dL in two weeks.
+Teaching: empagliflozin 10 mg daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: empagliflozin 10 mg daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA1 pathogenic variant identified on germline testing. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor started for Alzheimer disease. Avoid anticholinergics.
+Plan: continue empagliflozin 25 mg daily. Monitor serum creatinine 1.8 mg/dL and rising.
+Assessment: ICD-10-CM E11.65 documented on the problem list. Medications include empagliflozin 25 mg daily.
+Labs today: serum creatinine 1.8 mg/dL and rising. Genetics note: BRCA1 pathogenic variant; discuss risk-reducing surgery.
+Hospital day 3: Pharmacy verified empagliflozin 10 mg daily and metformin 1000 mg twice daily.
+Reconcile home meds: empagliflozin 25 mg daily; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM E11.65 documented on the problem list. Recheck serum creatinine 1.8 mg/dL and rising in two weeks.
+Teaching: empagliflozin 25 mg daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: empagliflozin 25 mg daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA1 pathogenic variant; discuss risk-reducing surgery. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor: donepezil 5 mg nightly. Avoid anticholinergics.
+Plan: continue metformin 1000 mg twice daily. Monitor hemoglobin A1c 8.2%.
+Assessment: ICD-10-CM I50.9 heart failure unspecified. Medications include metformin 1000 mg twice daily.
+Labs today: hemoglobin A1c 8.2%. Genetics note: BRCA2 variant of uncertain significance, not BRCA1 pathogenic variant.
+Hospital day 3: Hold empagliflozin 10 mg daily if eGFR falls below 20.
+Reconcile home meds: metformin 1000 mg twice daily; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM I50.9 heart failure unspecified. Recheck hemoglobin A1c 8.2% in two weeks.
+Teaching: metformin 1000 mg twice daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: metformin 1000 mg twice daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA2 variant of uncertain significance, not BRCA1 pathogenic variant. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor titrated to donepezil 10 mg. Avoid anticholinergics.
+Plan: continue metformin 500 mg with meals. Monitor hemoglobin A1c 7.1% after diet counseling.
+Assessment: ICD-10-CM J18.9 pneumonia unspecified organism. Medications include metformin 500 mg with meals.
+Labs today: hemoglobin A1c 7.1% after diet counseling. Genetics note: EGFR exon 19 deletion in lung adenocarcinoma.
+Hospital day 3: Patient reports β-lactam allergy; use azithromycin instead of amoxicillin.
+Reconcile home meds: metformin 500 mg with meals; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM J18.9 pneumonia unspecified organism. Recheck hemoglobin A1c 7.1% after diet counseling in two weeks.
+Teaching: metformin 500 mg with meals is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: metformin 500 mg with meals plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: EGFR exon 19 deletion in lung adenocarcinoma. Imaging showed left lower lobe consolidation.
+Neuro: Naïve CD4+ T cells recovered after antiretroviral therapy. Avoid anticholinergics.
+Plan: continue levothyroxine 75 μg daily. Monitor troponin I elevated at 0.42 ng/mL.
+Assessment: ICD-10-CM N18.4 chronic kidney disease stage 4. Medications include levothyroxine 75 μg daily.
+Labs today: troponin I elevated at 0.42 ng/mL. Genetics note: KRAS G12C mutation reported on liquid biopsy.
+Hospital day 3: Imaging: left lower lobe consolidation favors community-acquired pneumonia.
+Reconcile home meds: levothyroxine 75 μg daily; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM N18.4 chronic kidney disease stage 4. Recheck troponin I elevated at 0.42 ng/mL in two weeks.
+Teaching: levothyroxine 75 μg daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: levothyroxine 75 μg daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: KRAS G12C mutation reported on liquid biopsy. Imaging showed left lower lobe consolidation.
+Neuro: Naïve CD4+ T cells remain low in advanced HIV. Avoid anticholinergics.
+Plan: continue levothyroxine 50 μg daily. Monitor troponin I elevated, delta positive over 3 hours.
+Assessment: ICD-10-CM C50.911 HER2-negative breast cancer of the right breast. Medications include levothyroxine 50 μg daily.
+Labs today: troponin I elevated, delta positive over 3 hours. Genetics note: HER2-negative breast cancer without BRCA1 pathogenic variant.
+Hospital day 3: Cardiology: ST-elevation myocardial infarction, door-to-balloon 52 minutes.
+Reconcile home meds: levothyroxine 50 μg daily; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM C50.911 HER2-negative breast cancer of the right breast. Recheck troponin I elevated, delta positive over 3 hours in two weeks.
+Teaching: levothyroxine 50 μg daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: levothyroxine 50 μg daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: HER2-negative breast cancer without BRCA1 pathogenic variant. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor started for Alzheimer disease. Avoid anticholinergics.
+Plan: continue oseltamivir 75 mg twice daily. Monitor NT-proBNP 4200 pg/mL.
+Assessment: community-acquired pneumonia treated with ceftriaxone. Medications include oseltamivir 75 mg twice daily.
+Labs today: NT-proBNP 4200 pg/mL. Genetics note: BRCA1 pathogenic variant identified on germline testing.
+Hospital day 3: Oncology follow-up for HER2-negative breast cancer and BRCA1 pathogenic variant counseling.
+Reconcile home meds: oseltamivir 75 mg twice daily; allergy: β-lactam allergy.
+Follow-up: community-acquired pneumonia treated with ceftriaxone. Recheck NT-proBNP 4200 pg/mL in two weeks.
+Teaching: oseltamivir 75 mg twice daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: oseltamivir 75 mg twice daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA1 pathogenic variant identified on germline testing. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor: donepezil 5 mg nightly. Avoid anticholinergics.
+Plan: continue vancomycin trough 18 μg/mL. Monitor NT-proBNP 1800 pg/mL after diuresis.
+Assessment: left lower lobe consolidation on chest radiograph. Medications include vancomycin trough 18 μg/mL.
+Labs today: NT-proBNP 1800 pg/mL after diuresis. Genetics note: BRCA1 pathogenic variant; discuss risk-reducing surgery.
+Hospital day 3: Endocrine: hemoglobin A1c 8.2% on metformin 1000 mg twice daily plus empagliflozin 10 mg daily.
+Reconcile home meds: vancomycin trough 18 μg/mL; allergy: β-lactam allergy.
+Follow-up: left lower lobe consolidation on chest radiograph. Recheck NT-proBNP 1800 pg/mL after diuresis in two weeks.
+Teaching: vancomycin trough 18 μg/mL is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: vancomycin trough 18 μg/mL plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA1 pathogenic variant; discuss risk-reducing surgery. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor titrated to donepezil 10 mg. Avoid anticholinergics.
+Plan: continue vancomycin trough 12 μg/mL. Monitor potassium 4.2 mmol/L, sodium 138 mmol/L.
+Assessment: ST-elevation myocardial infarction of the anterior wall. Medications include vancomycin trough 12 μg/mL.
+Labs today: potassium 4.2 mmol/L, sodium 138 mmol/L. Genetics note: BRCA2 variant of uncertain significance, not BRCA1 pathogenic variant.
+Hospital day 3: Nephrology: serum creatinine 1.4 mg/dL, chronic kidney disease stage 4, avoid NSAIDs.
+Reconcile home meds: vancomycin trough 12 μg/mL; allergy: β-lactam allergy.
+Follow-up: ST-elevation myocardial infarction of the anterior wall. Recheck potassium 4.2 mmol/L, sodium 138 mmol/L in two weeks.
+Teaching: vancomycin trough 12 μg/mL is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: vancomycin trough 12 μg/mL plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA2 variant of uncertain significance, not BRCA1 pathogenic variant. Imaging showed left lower lobe consolidation.
+Neuro: Naïve CD4+ T cells recovered after antiretroviral therapy. Avoid anticholinergics.
+Plan: continue atorvastatin 40 mg at bedtime. Monitor eGFR 28 mL/min/1.73 m2 consistent with CKD stage 4.
+Assessment: chronic kidney disease stage 4 with anemia of CKD. Medications include atorvastatin 40 mg at bedtime.
+Labs today: eGFR 28 mL/min/1.73 m2 consistent with CKD stage 4. Genetics note: EGFR exon 19 deletion in lung adenocarcinoma.
+Hospital day 3: ID: COVID-19 mRNA vaccine documented; oseltamivir 75 mg twice daily for influenza A.
+Reconcile home meds: atorvastatin 40 mg at bedtime; allergy: β-lactam allergy.
+Follow-up: chronic kidney disease stage 4 with anemia of CKD. Recheck eGFR 28 mL/min/1.73 m2 consistent with CKD stage 4 in two weeks.
+Teaching: atorvastatin 40 mg at bedtime is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: atorvastatin 40 mg at bedtime plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: EGFR exon 19 deletion in lung adenocarcinoma. Imaging showed left lower lobe consolidation.
+Neuro: Naïve CD4+ T cells remain low in advanced HIV. Avoid anticholinergics.
+Plan: continue lisinopril 20 mg daily. Monitor LDL cholesterol 142 mg/dL on atorvastatin.
+Assessment: HER2-negative breast cancer, ER-positive, PR-positive. Medications include lisinopril 20 mg daily.
+Labs today: LDL cholesterol 142 mg/dL on atorvastatin. Genetics note: KRAS G12C mutation reported on liquid biopsy.
+Hospital day 3: ICU: vancomycin trough 18 μg/mL; dose adjusted for serum creatinine 1.4 mg/dL.
+Reconcile home meds: lisinopril 20 mg daily; allergy: β-lactam allergy.
+Follow-up: HER2-negative breast cancer, ER-positive, PR-positive. Recheck LDL cholesterol 142 mg/dL on atorvastatin in two weeks.
+Teaching: lisinopril 20 mg daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: lisinopril 20 mg daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: KRAS G12C mutation reported on liquid biopsy. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor started for Alzheimer disease. Avoid anticholinergics.
+Plan: continue apixaban 5 mg twice daily. Monitor TSH 2.4 mIU/L on levothyroxine 75 μg daily.
+Assessment: β-lactam allergy listed in the chart; avoid penicillin. Medications include apixaban 5 mg twice daily.
+Labs today: TSH 2.4 mIU/L on levothyroxine 75 μg daily. Genetics note: HER2-negative breast cancer without BRCA1 pathogenic variant.
+Hospital day 3: Primary care: levothyroxine 75 μg daily, TSH in range.
+Reconcile home meds: apixaban 5 mg twice daily; allergy: β-lactam allergy.
+Follow-up: β-lactam allergy listed in the chart; avoid penicillin. Recheck TSH 2.4 mIU/L on levothyroxine 75 μg daily in two weeks.
+Teaching: apixaban 5 mg twice daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: apixaban 5 mg twice daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: HER2-negative breast cancer without BRCA1 pathogenic variant. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor: donepezil 5 mg nightly. Avoid anticholinergics.
+Plan: continue insulin glargine 20 units at night. Monitor serum creatinine 1.4 mg/dL.
+Assessment: β-lactam allergy: rash with amoxicillin in childhood. Medications include insulin glargine 20 units at night.
+Labs today: serum creatinine 1.4 mg/dL. Genetics note: BRCA1 pathogenic variant identified on germline testing.
+Hospital day 3: The acetylcholinesterase inhibitor was held for bradycardia overnight.
+Reconcile home meds: insulin glargine 20 units at night; allergy: β-lactam allergy.
+Follow-up: β-lactam allergy: rash with amoxicillin in childhood. Recheck serum creatinine 1.4 mg/dL in two weeks.
+Teaching: insulin glargine 20 units at night is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: insulin glargine 20 units at night plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA1 pathogenic variant identified on germline testing. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor titrated to donepezil 10 mg. Avoid anticholinergics.
+Plan: continue furosemide 40 mg twice daily. Monitor serum creatinine 1.8 mg/dL and rising.
+Assessment: COVID-19 mRNA vaccine series completed in 2021. Medications include furosemide 40 mg twice daily.
+Labs today: serum creatinine 1.8 mg/dL and rising. Genetics note: BRCA1 pathogenic variant; discuss risk-reducing surgery.
+Hospital day 3: Pathology confirmed HER2-negative breast cancer; IHC 0, FISH not amplified.
+Reconcile home meds: furosemide 40 mg twice daily; allergy: β-lactam allergy.
+Follow-up: COVID-19 mRNA vaccine series completed in 2021. Recheck serum creatinine 1.8 mg/dL and rising in two weeks.
+Teaching: furosemide 40 mg twice daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: furosemide 40 mg twice daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA1 pathogenic variant; discuss risk-reducing surgery. Imaging showed left lower lobe consolidation.
+Neuro: Naïve CD4+ T cells recovered after antiretroviral therapy. Avoid anticholinergics.
+Plan: continue pantoprazole 40 mg daily. Monitor hemoglobin A1c 8.2%.
+Assessment: COVID-19 mRNA vaccine booster given this season. Medications include pantoprazole 40 mg daily.
+Labs today: hemoglobin A1c 8.2%. Genetics note: BRCA2 variant of uncertain significance, not BRCA1 pathogenic variant.
+Hospital day 3: Problem list includes ICD-10-CM E11.65 and chronic kidney disease stage 4.
+Reconcile home meds: pantoprazole 40 mg daily; allergy: β-lactam allergy.
+Follow-up: COVID-19 mRNA vaccine booster given this season. Recheck hemoglobin A1c 8.2% in two weeks.
+Teaching: pantoprazole 40 mg daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: pantoprazole 40 mg daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: BRCA2 variant of uncertain significance, not BRCA1 pathogenic variant. Imaging showed left lower lobe consolidation.
+Neuro: Naïve CD4+ T cells remain low in advanced HIV. Avoid anticholinergics.
+Plan: continue amoxicillin-clavulanate 875 mg twice daily. Monitor hemoglobin A1c 7.1% after diet counseling.
+Assessment: ICD-10-CM E11.65 type 2 diabetes mellitus with hyperglycemia. Medications include amoxicillin-clavulanate 875 mg twice daily.
+Labs today: hemoglobin A1c 7.1% after diet counseling. Genetics note: EGFR exon 19 deletion in lung adenocarcinoma.
+Hospital day 3: Radiology: left lower lobe consolidation, no effusion, no pneumothorax.
+Reconcile home meds: amoxicillin-clavulanate 875 mg twice daily; allergy: β-lactam allergy.
+Follow-up: ICD-10-CM E11.65 type 2 diabetes mellitus with hyperglycemia. Recheck hemoglobin A1c 7.1% after diet counseling in two weeks.
+Teaching: amoxicillin-clavulanate 875 mg twice daily is an SGLT2 inhibitor used in type 2 diabetes and HFrEF.
+Warning: amoxicillin-clavulanate 875 mg twice daily plus contrast; check serum creatinine 1.4 mg/dL first.
+Consult: EGFR exon 19 deletion in lung adenocarcinoma. Imaging showed left lower lobe consolidation.
+Neuro: acetylcholinesterase inhibitor started for Alzheimer disease. Avoid anticholinergics.
+Discharge summary: empagliflozin 10 mg daily continued for heart failure and diabetes.
+Pharmacy verified empagliflozin 10 mg daily and metformin 1000 mg twice daily.
+Hold empagliflozin 10 mg daily if eGFR falls below 20.
+Patient reports β-lactam allergy; use azithromycin instead of amoxicillin.
+Imaging: left lower lobe consolidation favors community-acquired pneumonia.
+Cardiology: ST-elevation myocardial infarction, door-to-balloon 52 minutes.
+Oncology follow-up for HER2-negative breast cancer and BRCA1 pathogenic variant counseling.
+Endocrine: hemoglobin A1c 8.2% on metformin 1000 mg twice daily plus empagliflozin 10 mg daily.
+Nephrology: serum creatinine 1.4 mg/dL, chronic kidney disease stage 4, avoid NSAIDs.
+ID: COVID-19 mRNA vaccine documented; oseltamivir 75 mg twice daily for influenza A.
+ICU: vancomycin trough 18 μg/mL; dose adjusted for serum creatinine 1.4 mg/dL.
+Primary care: levothyroxine 75 μg daily, TSH in range.
+The acetylcholinesterase inhibitor was held for bradycardia overnight.
+Pathology confirmed HER2-negative breast cancer; IHC 0, FISH not amplified.
+Problem list includes ICD-10-CM E11.65 and chronic kidney disease stage 4.
+Radiology: left lower lobe consolidation, no effusion, no pneumothorax.
+The COVID-19 mRNA vaccine is not a contraindication to the acetylcholinesterase inhibitor.
+Naïve CD4+ T cells were 18% of the CD4 compartment.
+Start empagliflozin 10 mg daily after volume status is optimized.
+Repeat serum creatinine 1.4 mg/dL tomorrow; if rising, stop empagliflozin 10 mg daily.
+Discharge summary: empagliflozin 10 mg daily continued for heart failure and diabetes.
+Pharmacy verified empagliflozin 10 mg daily and metformin 1000 mg twice daily.
+Hold empagliflozin 10 mg daily if eGFR falls below 20.
+Patient reports β-lactam allergy; use azithromycin instead of amoxicillin.
+Imaging: left lower lobe consolidation favors community-acquired pneumonia.
+Cardiology: ST-elevation myocardial infarction, door-to-balloon 52 minutes.
+Oncology follow-up for HER2-negative breast cancer and BRCA1 pathogenic variant counseling.
+Endocrine: hemoglobin A1c 8.2% on metformin 1000 mg twice daily plus empagliflozin 10 mg daily.
+Nephrology: serum creatinine 1.4 mg/dL, chronic kidney disease stage 4, avoid NSAIDs.
+ID: COVID-19 mRNA vaccine documented; oseltamivir 75 mg twice daily for influenza A.
+ICU: vancomycin trough 18 μg/mL; dose adjusted for serum creatinine 1.4 mg/dL.
+Primary care: levothyroxine 75 μg daily, TSH in range.
+The acetylcholinesterase inhibitor was held for bradycardia overnight.
+Pathology confirmed HER2-negative breast cancer; IHC 0, FISH not amplified.
+Problem list includes ICD-10-CM E11.65 and chronic kidney disease stage 4.
+Radiology: left lower lobe consolidation, no effusion, no pneumothorax.
+The COVID-19 mRNA vaccine is not a contraindication to the acetylcholinesterase inhibitor.
+Naïve CD4+ T cells were 18% of the CD4 compartment.
+Start empagliflozin 10 mg daily after volume status is optimized.
+Repeat serum creatinine 1.4 mg/dL tomorrow; if rising, stop empagliflozin 10 mg daily.
+Discharge summary: empagliflozin 10 mg daily continued for heart failure and diabetes.
+Pharmacy verified empagliflozin 10 mg daily and metformin 1000 mg twice daily.
+Hold empagliflozin 10 mg daily if eGFR falls below 20.
+Patient reports β-lactam allergy; use azithromycin instead of amoxicillin.
+Imaging: left lower lobe consolidation favors community-acquired pneumonia.
+Cardiology: ST-elevation myocardial infarction, door-to-balloon 52 minutes.
+Oncology follow-up for HER2-negative breast cancer and BRCA1 pathogenic variant counseling.
+Endocrine: hemoglobin A1c 8.2% on metformin 1000 mg twice daily plus empagliflozin 10 mg daily.
+Nephrology: serum creatinine 1.4 mg/dL, chronic kidney disease stage 4, avoid NSAIDs.
+ID: COVID-19 mRNA vaccine documented; oseltamivir 75 mg twice daily for influenza A.
+ICU: vancomycin trough 18 μg/mL; dose adjusted for serum creatinine 1.4 mg/dL.
+Primary care: levothyroxine 75 μg daily, TSH in range.
+The acetylcholinesterase inhibitor was held for bradycardia overnight.
+Pathology confirmed HER2-negative breast cancer; IHC 0, FISH not amplified.
+Problem list includes ICD-10-CM E11.65 and chronic kidney disease stage 4.
+Radiology: left lower lobe consolidation, no effusion, no pneumothorax.
+The COVID-19 mRNA vaccine is not a contraindication to the acetylcholinesterase inhibitor.
+Naïve CD4+ T cells were 18% of the CD4 compartment.
+Start empagliflozin 10 mg daily after volume status is optimized.
+Repeat serum creatinine 1.4 mg/dL tomorrow; if rising, stop empagliflozin 10 mg daily.
+Discharge summary: empagliflozin 10 mg daily continued for heart failure and diabetes.
+Pharmacy verified empagliflozin 10 mg daily and metformin 1000 mg twice daily.
+Hold empagliflozin 10 mg daily if eGFR falls below 20.
+Patient reports β-lactam allergy; use azithromycin instead of amoxicillin.
+Imaging: left lower lobe consolidation favors community-acquired pneumonia.
+Cardiology: ST-elevation myocardial infarction, door-to-balloon 52 minutes.
+Oncology follow-up for HER2-negative breast cancer and BRCA1 pathogenic variant counseling.
+Endocrine: hemoglobin A1c 8.2% on metformin 1000 mg twice daily plus empagliflozin 10 mg daily.
+Nephrology: serum creatinine 1.4 mg/dL, chronic kidney disease stage 4, avoid NSAIDs.
+ID: COVID-19 mRNA vaccine documented; oseltamivir 75 mg twice daily for influenza A.
+ICU: vancomycin trough 18 μg/mL; dose adjusted for serum creatinine 1.4 mg/dL.
+Primary care: levothyroxine 75 μg daily, TSH in range.
+The acetylcholinesterase inhibitor was held for bradycardia overnight.
+Pathology confirmed HER2-negative breast cancer; IHC 0, FISH not amplified.
+Problem list includes ICD-10-CM E11.65 and chronic kidney disease stage 4.
+Radiology: left lower lobe consolidation, no effusion, no pneumothorax.
+The COVID-19 mRNA vaccine is not a contraindication to the acetylcholinesterase inhibitor.
+Naïve CD4+ T cells were 18% of the CD4 compartment.
+Start empagliflozin 10 mg daily after volume status is optimized.
+Repeat serum creatinine 1.4 mg/dL tomorrow; if rising, stop empagliflozin 10 mg daily.
+A 62-year-old with ICD-10-CM E11.65 and chronic kidney disease stage 4 presents with community-acquired pneumonia.
+Chest film shows left lower lobe consolidation. Start empiric therapy. Document β-lactam allergy.
+Home medicines: empagliflozin 10 mg daily, metformin 1000 mg twice daily, levothyroxine 75 μg daily.
+Labs: serum creatinine 1.4 mg/dL, hemoglobin A1c 8.2%, NT-proBNP 4200 pg/mL, troponin I elevated.
+Oncology history: HER2-negative breast cancer and a BRCA1 pathogenic variant on germline testing.
+Neurology prescribed an acetylcholinesterase inhibitor last month for memory loss.
+Immunology: Naïve CD4+ T cells were measured; COVID-19 mRNA vaccine records are complete.
+If influenza is confirmed, oseltamivir 75 mg twice daily for five days.
+Pharmacy: vancomycin trough 18 μg/mL; adjust for serum creatinine 1.4 mg/dL.
+Cardiology ruled in ST-elevation myocardial infarction overnight; cath lab activated.
+Do not confuse ICD-10-CM E11.65 with other diabetes codes in the billing worksheet.
+Empagliflozin 10 mg daily was held on the morning of contrast CT, then restarted.
+The acetylcholinesterase inhibitor can cause nausea; take with food.
+BRCA1 pathogenic variant carriers need intensified breast and ovarian surveillance.
+Left lower lobe consolidation improved after treatment of community-acquired pneumonia.
+Units matter: mg/dL for serum creatinine 1.4 mg/dL, μg for levothyroxine 75 μg daily, pg/mL for NT-proBNP 4200 pg/mL.
+β-lactam allergy is not the same as an intolerance; clarify the reaction in the chart.
+COVID-19 mRNA vaccine myocarditis is rare; chest pain still needs troponin I elevated workup.
+Naïve CD4+ T cells help interpret immune reconstitution, not bacterial pneumonia severity.
+Teaching corpus line: empagliflozin 10 mg daily, empagliflozin 10 mg daily, empagliflozin 10 mg daily.
+A 62-year-old with ICD-10-CM E11.65 and chronic kidney disease stage 4 presents with community-acquired pneumonia.
+Chest film shows left lower lobe consolidation. Start empiric therapy. Document β-lactam allergy.
+Home medicines: empagliflozin 10 mg daily, metformin 1000 mg twice daily, levothyroxine 75 μg daily.
+Labs: serum creatinine 1.4 mg/dL, hemoglobin A1c 8.2%, NT-proBNP 4200 pg/mL, troponin I elevated.
+Oncology history: HER2-negative breast cancer and a BRCA1 pathogenic variant on germline testing.
+Neurology prescribed an acetylcholinesterase inhibitor last month for memory loss.
+Immunology: Naïve CD4+ T cells were measured; COVID-19 mRNA vaccine records are complete.
+If influenza is confirmed, oseltamivir 75 mg twice daily for five days.
+Pharmacy: vancomycin trough 18 μg/mL; adjust for serum creatinine 1.4 mg/dL.
+Cardiology ruled in ST-elevation myocardial infarction overnight; cath lab activated.
+Do not confuse ICD-10-CM E11.65 with other diabetes codes in the billing worksheet.
+Empagliflozin 10 mg daily was held on the morning of contrast CT, then restarted.
+The acetylcholinesterase inhibitor can cause nausea; take with food.
+BRCA1 pathogenic variant carriers need intensified breast and ovarian surveillance.
+Left lower lobe consolidation improved after treatment of community-acquired pneumonia.
+Units matter: mg/dL for serum creatinine 1.4 mg/dL, μg for levothyroxine 75 μg daily, pg/mL for NT-proBNP 4200 pg/mL.
+β-lactam allergy is not the same as an intolerance; clarify the reaction in the chart.
+COVID-19 mRNA vaccine myocarditis is rare; chest pain still needs troponin I elevated workup.
+Naïve CD4+ T cells help interpret immune reconstitution, not bacterial pneumonia severity.
+Teaching corpus line: empagliflozin 10 mg daily, empagliflozin 10 mg daily, empagliflozin 10 mg daily.
+A 62-year-old with ICD-10-CM E11.65 and chronic kidney disease stage 4 presents with community-acquired pneumonia.
+Chest film shows left lower lobe consolidation. Start empiric therapy. Document β-lactam allergy.
+Home medicines: empagliflozin 10 mg daily, metformin 1000 mg twice daily, levothyroxine 75 μg daily.
+Labs: serum creatinine 1.4 mg/dL, hemoglobin A1c 8.2%, NT-proBNP 4200 pg/mL, troponin I elevated.
+Oncology history: HER2-negative breast cancer and a BRCA1 pathogenic variant on germline testing.
+Neurology prescribed an acetylcholinesterase inhibitor last month for memory loss.
+Immunology: Naïve CD4+ T cells were measured; COVID-19 mRNA vaccine records are complete.
+If influenza is confirmed, oseltamivir 75 mg twice daily for five days.
+Pharmacy: vancomycin trough 18 μg/mL; adjust for serum creatinine 1.4 mg/dL.
+Cardiology ruled in ST-elevation myocardial infarction overnight; cath lab activated.
+Do not confuse ICD-10-CM E11.65 with other diabetes codes in the billing worksheet.
+Empagliflozin 10 mg daily was held on the morning of contrast CT, then restarted.
+The acetylcholinesterase inhibitor can cause nausea; take with food.
+BRCA1 pathogenic variant carriers need intensified breast and ovarian surveillance.
+Left lower lobe consolidation improved after treatment of community-acquired pneumonia.
+Units matter: mg/dL for serum creatinine 1.4 mg/dL, μg for levothyroxine 75 μg daily, pg/mL for NT-proBNP 4200 pg/mL.
+β-lactam allergy is not the same as an intolerance; clarify the reaction in the chart.
+COVID-19 mRNA vaccine myocarditis is rare; chest pain still needs troponin I elevated workup.
+Naïve CD4+ T cells help interpret immune reconstitution, not bacterial pneumonia severity.
+Teaching corpus line: empagliflozin 10 mg daily, empagliflozin 10 mg daily, empagliflozin 10 mg daily.
+A 62-year-old with ICD-10-CM E11.65 and chronic kidney disease stage 4 presents with community-acquired pneumonia.
+Chest film shows left lower lobe consolidation. Start empiric therapy. Document β-lactam allergy.
+Home medicines: empagliflozin 10 mg daily, metformin 1000 mg twice daily, levothyroxine 75 μg daily.
+Labs: serum creatinine 1.4 mg/dL, hemoglobin A1c 8.2%, NT-proBNP 4200 pg/mL, troponin I elevated.
+Oncology history: HER2-negative breast cancer and a BRCA1 pathogenic variant on germline testing.
+Neurology prescribed an acetylcholinesterase inhibitor last month for memory loss.
+Immunology: Naïve CD4+ T cells were measured; COVID-19 mRNA vaccine records are complete.
+If influenza is confirmed, oseltamivir 75 mg twice daily for five days.
+Pharmacy: vancomycin trough 18 μg/mL; adjust for serum creatinine 1.4 mg/dL.
+Cardiology ruled in ST-elevation myocardial infarction overnight; cath lab activated.
+Do not confuse ICD-10-CM E11.65 with other diabetes codes in the billing worksheet.
+Empagliflozin 10 mg daily was held on the morning of contrast CT, then restarted.
+The acetylcholinesterase inhibitor can cause nausea; take with food.
+BRCA1 pathogenic variant carriers need intensified breast and ovarian surveillance.
+Left lower lobe consolidation improved after treatment of community-acquired pneumonia.
+Units matter: mg/dL for serum creatinine 1.4 mg/dL, μg for levothyroxine 75 μg daily, pg/mL for NT-proBNP 4200 pg/mL.
+β-lactam allergy is not the same as an intolerance; clarify the reaction in the chart.
+COVID-19 mRNA vaccine myocarditis is rare; chest pain still needs troponin I elevated workup.
+Naïve CD4+ T cells help interpret immune reconstitution, not bacterial pneumonia severity.
+Teaching corpus line: empagliflozin 10 mg daily, empagliflozin 10 mg daily, empagliflozin 10 mg daily.
+A 62-year-old with ICD-10-CM E11.65 and chronic kidney disease stage 4 presents with community-acquired pneumonia.
+Chest film shows left lower lobe consolidation. Start empiric therapy. Document β-lactam allergy.
+Home medicines: empagliflozin 10 mg daily, metformin 1000 mg twice daily, levothyroxine 75 μg daily.
+Labs: serum creatinine 1.4 mg/dL, hemoglobin A1c 8.2%, NT-proBNP 4200 pg/mL, troponin I elevated.
+Oncology history: HER2-negative breast cancer and a BRCA1 pathogenic variant on germline testing.
+Neurology prescribed an acetylcholinesterase inhibitor last month for memory loss.
+Immunology: Naïve CD4+ T cells were measured; COVID-19 mRNA vaccine records are complete.
+If influenza is confirmed, oseltamivir 75 mg twice daily for five days.
+Pharmacy: vancomycin trough 18 μg/mL; adjust for serum creatinine 1.4 mg/dL.
+Cardiology ruled in ST-elevation myocardial infarction overnight; cath lab activated.
+Do not confuse ICD-10-CM E11.65 with other diabetes codes in the billing worksheet.
+Empagliflozin 10 mg daily was held on the morning of contrast CT, then restarted.
+The acetylcholinesterase inhibitor can cause nausea; take with food.
+BRCA1 pathogenic variant carriers need intensified breast and ovarian surveillance.
+Left lower lobe consolidation improved after treatment of community-acquired pneumonia.
+Units matter: mg/dL for serum creatinine 1.4 mg/dL, μg for levothyroxine 75 μg daily, pg/mL for NT-proBNP 4200 pg/mL.
+β-lactam allergy is not the same as an intolerance; clarify the reaction in the chart.
+COVID-19 mRNA vaccine myocarditis is rare; chest pain still needs troponin I elevated workup.
+Naïve CD4+ T cells help interpret immune reconstitution, not bacterial pneumonia severity.
+Teaching corpus line: empagliflozin 10 mg daily, empagliflozin 10 mg daily, empagliflozin 10 mg daily.
+A 62-year-old with ICD-10-CM E11.65 and chronic kidney disease stage 4 presents with community-acquired pneumonia.
+Chest film shows left lower lobe consolidation. Start empiric therapy. Document β-lactam allergy.
+Home medicines: empagliflozin 10 mg daily, metformin 1000 mg twice daily, levothyroxine 75 μg daily.
+Labs: serum creatinine 1.4 mg/dL, hemoglobin A1c 8.2%, NT-proBNP 4200 pg/mL, troponin I elevated.
+Oncology history: HER2-negative breast cancer and a BRCA1 pathogenic variant on germline testing.
+Neurology prescribed an acetylcholinesterase inhibitor last month for memory loss.
+Immunology: Naïve CD4+ T cells were measured; COVID-19 mRNA vaccine records are complete.
+If influenza is confirmed, oseltamivir 75 mg twice daily for five days.
+Pharmacy: vancomycin trough 18 μg/mL; adjust for serum creatinine 1.4 mg/dL.
+Cardiology ruled in ST-elevation myocardial infarction overnight; cath lab activated.
+Do not confuse ICD-10-CM E11.65 with other diabetes codes in the billing worksheet.
+Empagliflozin 10 mg daily was held on the morning of contrast CT, then restarted.
+The acetylcholinesterase inhibitor can cause nausea; take with food.
+BRCA1 pathogenic variant carriers need intensified breast and ovarian surveillance.
+Left lower lobe consolidation improved after treatment of community-acquired pneumonia.
+Units matter: mg/dL for serum creatinine 1.4 mg/dL, μg for levothyroxine 75 μg daily, pg/mL for NT-proBNP 4200 pg/mL.
+β-lactam allergy is not the same as an intolerance; clarify the reaction in the chart.
+COVID-19 mRNA vaccine myocarditis is rare; chest pain still needs troponin I elevated workup.
+Naïve CD4+ T cells help interpret immune reconstitution, not bacterial pneumonia severity.
+Teaching corpus line: empagliflozin 10 mg daily, empagliflozin 10 mg daily, empagliflozin 10 mg daily.

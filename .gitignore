@@ -13,23 +13,24 @@ artifacts/
 .mypy_cache/
 .pytest_cache/
 .jupyter/
-*.model
-*.vocab
-!models/pretrained/
-!models/pretrained/*.model
-!models/pretrained/*.vocab
 
 # Course corpora (force-tracked; some global gitignores exclude data/)
 !data/
-!data/tiny_corpus.txt
-!data/sennrich_toy.txt
+!data/medical_corpus.txt
+!data/medical_probes.txt
+!data/medical_control.txt
 
-# Checked-in SentencePiece fallback for install failures
+# Optional large corpora (instructor network); never commit
+data/pubmed_sample.jsonl
+data/pubmed_train.jsonl
+data/pubmed_heldout.jsonl
+data/general_train.jsonl
+data/general_heldout.jsonl
+data/.pubmed_xml_cache/
+
 !models/
 !models/pretrained/
 !models/pretrained/**
 
-# Production tokenizer pipeline — large files, gitignored
-data/corpus/
-models/legal-bpe-50k/
-
+# Instructor-only teaching notes
+TEACHING_PLAN.md

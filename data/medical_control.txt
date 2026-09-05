@@ -1,0 +1,40 @@
+The quick brown fox jumps over the lazy dog in the garden behind the house.
+Language models read tokens not characters, and vocabulary size changes sequence length.
+Byte pair encoding builds a vocabulary from frequent pairs in the training corpus.
+The cat sat on the mat while the sun set behind the distant hills.
+Machine learning starts with data, then features, then a model, then evaluation.
+Neural networks map tokens to vectors and then mix those vectors with attention.
+Out of vocabulary words break word level tokenizers unless subword units exist.
+Hello world, this is a test sentence about rivers, mountains, and ordinary weather.
+The library opened at nine and closed at six on weekdays throughout the winter.
+Students packed the lecture hall to hear a talk about history, poetry, and maps.
+A baker mixed flour, water, yeast, and salt, then waited for the dough to rise.
+The river flooded after three days of rain, and the town moved sandbags to the bridge.
+She read a novel on the train and missed her stop because the story was good.
+Tomorrow we will walk to the market for apples, bread, onions, and cheap tea.
+Computers store numbers as bits; people store memories as stories and smells.
+The orchestra rehearsed the same movement until the horns and strings agreed.
+Winter nights are long, quiet, and cold, and the streetlights buzz over empty roads.
+A bicycle is a simple machine: two wheels, a chain, pedals, and a frame.
+The museum displayed pottery from a village that vanished two centuries ago.
+Children counted clouds while waiting for the school bus in the morning fog.
+This paragraph is ordinary English on purpose. No drug names. No lab units. No ICD codes.
+Tokenization of everyday prose is what general-purpose vocabularies already do well.
+Compare fertility here against the medical probe list. Custom is not required to win.
+The gardener planted roses along the fence and watered them at dusk.
+Paper maps fold badly in the wind, yet hikers still carry them as backup.
+A good recipe lists ingredients, times, temperatures, and a short method.
+The printer jammed on page three and the office spent an hour with tweezers.
+Friday afternoon traffic crawled past the stadium after the match ended.
+He tuned the guitar, missed one string, and started the song anyway.
+The archive stored letters, ledgers, and photographs in acid-free boxes.
+People argue about the best way to brew coffee and never quite agree.
+A kite needs wind, string, and a little luck if the trees are close.
+The ferry left on time even though the fog horn sounded twice.
+She labeled the moving boxes kitchen, books, clothes, and miscellaneous.
+The radio played a song from twenty years ago and nobody changed the station.
+Ordinary words like table, chair, window, and door already sit in huge vocabs.
+General English should not be the place a medical tokenizer looks impressive.
+If custom BPE wins here, the corpus was mixed with too much Wikipedia-like text.
+Keep this file as the control so students see domain fit, not magic.
+The last line is still just English about weather, trains, bread, and cats.

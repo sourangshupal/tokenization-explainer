@@ -1,292 +1,142 @@
-# Tokenization Deep Dive
+# Medical custom vs general tokenizer lab
 
-[![Live demo](https://img.shields.io/badge/demo-GitHub%20Pages-22d3ee?style=flat-square&logo=github&logoColor=white)](https://sourangshupal.github.io/tokenization-explainer/)
-[![Pages](https://img.shields.io/github/actions/workflow/status/sourangshupal/tokenization-explainer/pages.yml?label=pages&style=flat-square)](https://github.com/sourangshupal/tokenization-explainer/actions/workflows/pages.yml)
-[![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![uv](https://img.shields.io/badge/packaging-uv-DE5FE9?style=flat-square)](https://docs.astral.sh/uv/)
-[![tokenizers](https://img.shields.io/badge/tokenizers-0.23.1-FFD21E?style=flat-square)](https://github.com/huggingface/tokenizers)
-[![sentencepiece](https://img.shields.io/badge/sentencepiece-0.2.2-4285F4?style=flat-square)](https://github.com/google/sentencepiece)
-[![License: MIT](https://img.shields.io/badge/license-MIT-22c55e?style=flat-square)](LICENSE)
+Train a byte-level BPE on PubMed abstracts. Compare it to `cl100k_base`, `o200k_base`, and a
+same-size general-domain BPE control. Prove the win is from **domain**, not vocab size. Explain
+why you must not swap that vocab onto a pretrained LLM.
 
-Interactive course for AI engineers: a static **token lab** in the browser, then three Jupyter notebooks that train BPE, WordPiece, and SentencePiece from scratch before using current PyPI libraries via **uv**.
+Requires [uv](https://docs.astral.sh/uv/) and Python 3.12. Do not use pip.
 
-**[Open the live site](https://sourangshupal.github.io/tokenization-explainer/)** — no install. All playgrounds run in your browser.
+## What this lab proves
 
-Deep links for class chat:
+Four tokenizers — evaluated on **held-out text they never saw during training**:
 
-- [BPE lab](https://sourangshupal.github.io/tokenization-explainer/?tab=bpe#algo-labs)
-- [WordPiece lab](https://sourangshupal.github.io/tokenization-explainer/?tab=wordpiece#algo-labs)
-- [SentencePiece lab](https://sourangshupal.github.io/tokenization-explainer/?tab=sentencepiece&sp=unigram#algo-labs)
+| tokenizer | vocab | domain | medical fertility | general fertility |
+|-----------|-------|--------|-------------------|-------------------|
+| `custom-med` | 16k | PubMed | **1.375** ← wins | 1.575 (loses) |
+| `o200k_base` | ~200k | general | 1.430 | **1.163** ← wins |
+| `cl100k_base` | ~100k | general | 1.460 | 1.173 |
+| `general-bpe` | 16k | wikitext | 1.747 (worst) | 1.208 |
 
-<p align="center">
-  <img src="assets/readme/hero.png" alt="Token lab homepage: numbered syllabus and taxonomy" width="100%">
-</p>
+`custom-med` and `general-bpe` have **identical algorithm and vocab size**. On medical held-out
+text, `custom-med` is −5.8% vs cl100k while `general-bpe` is +20% worse. The only variable is
+training domain. That is the proof.
 
-## What you get
+Single-token rate on 20 medical terms: `cl100k` and `o200k` encode **0/20** as a single token.
+`custom-med` encodes 2/20. Custom-med has built a medical vocabulary; general tokenizers have not.
 
-| Surface | Runs where | What students do |
-|---|---|---|
-| [Live site](https://sourangshupal.github.io/tokenization-explainer/) | GitHub Pages (static HTML/JS) | Taxonomy, four-way splitter, OOV trap, UTF-8 inspector, in-browser BPE / WordPiece / SentencePiece, compare row, predict-then-reveal |
-| Jupyter notebooks | Local Python 3.12 + uv | Same algorithms from scratch, then HuggingFace `tokenizers` 0.23.1, `sentencepiece` 0.2.2, `tiktoken` 0.14.0 |
+Then a second experiment: same PubMed corpus, five vocab sizes (16k–100k). Measure **avg tokens
+per document**. Pick the smallest size near the minimum. This corpus is small (<1B tokens) so
+the recommended band is **16k–32k**, not the 50k "modern LLM default."
 
-The website does **not** need Python. Notebooks do **not** run on GitHub Pages.
-
-Instructors: see [`INSTRUCTOR.md`](INSTRUCTOR.md) for the 90-minute script and golden answers.
-
-## Syllabus
-
-1. Taxonomy of tokenization
-2. Word / subword / character / byte level (live labs)
-3. Byte Pair Encoding — site lab + `notebooks/01_bpe.ipynb`
-4. WordPiece — site lab + `notebooks/02_wordpiece.ipynb`
-5. SentencePiece — site lab + `notebooks/03_sentencepiece.ipynb`
-
-## Two corpora (important)
-
-| File | Used by |
-|---|---|
-| [`data/sennrich_toy.txt`](data/sennrich_toy.txt) | Website **Sennrich toy** preset; from-scratch BPE / WordPiece in notebooks |
-| [`data/tiny_corpus.txt`](data/tiny_corpus.txt) | Website **Course corpus** preset; HuggingFace / SentencePiece training cells |
-
-Same probe (`lowest`) can produce different merges across the two files. That is expected.
-
-## Live playgrounds
-
-Four-way split of the same string (word, naive subword, character, UTF-8 bytes):
-
-<p align="center">
-  <img src="assets/readme/four-way.png" alt="Four-way live splitter playground" width="100%">
-</p>
-
-Same corpus, three trainers. Switch **BPE**, **WordPiece**, and **SentencePiece** without leaving the page:
-
-<p align="center">
-  <img src="assets/readme/algo-labs.png" alt="Algorithm labs: BPE, WordPiece, and SentencePiece tabs" width="100%">
-</p>
-
-| Lab | What it teaches |
-|---|---|
-| Four-way splitter | How token *count* explodes as units get smaller |
-| OOV trap | Word-level `[UNK]` when a type was never in the vocab (predict, then reveal) |
-| UTF-8 inspector | Graphemes vs code points vs bytes (emoji, Indic, Japanese) |
-| Length bars | Vocab size vs sequence length (**naive 3-char is labeled — not BPE**) |
-| BPE tab | Max pair frequency, `</w>` end-of-word mark, round-trip decode |
-| WordPiece tab | Score `freq(ab)/(freq(a)·freq(b))`, greedy `##` encode |
-| SentencePiece tab | Unigram Viterbi with `▁`, or BPE with no whitespace split |
-| Compare row | Same probe under all three algorithms at once |
-
-Default teaching corpus is the Sennrich toy set. WordPiece on that set encodes `lowest` as `low` + `##est`.
-
-Projector tip: use the **Light** theme toggle in the nav.
-
-## Teaching diagrams
-
-Full-page SVG schematics (Token Lab cyan on light paper) — better for projectors than mermaid fences:
-
-| Diagram | URL |
-|---|---|
-| Gallery | https://sourangshupal.github.io/tokenization-explainer/diagrams/ |
-| Tokenizer pipeline | [01-pipeline.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/01-pipeline.html) |
-| Granularity layers | [02-granularity.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/02-granularity.html) |
-| BPE train loop | [03-bpe-train.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/03-bpe-train.html) |
-| BPE vs WordPiece | [04-bpe-vs-wordpiece.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/04-bpe-vs-wordpiece.html) |
-| Detokenize marks | [05-detokenize-marks.html](https://sourangshupal.github.io/tokenization-explainer/diagrams/05-detokenize-marks.html) |
-
-Local path: `site/diagrams/`.
-
-## Quickstart (notebooks)
-
-Requires [uv](https://docs.astral.sh/uv/) and Python 3.12+. Do not use pip.
+## Quick start (class, no network)
 
 ```bash
-git clone https://github.com/sourangshupal/tokenization-explainer.git
-cd tokenization-explainer
 uv sync
-uv run jupyter lab notebooks
+uv run jupyter lab notebooks/04_custom_vs_general.ipynb
 ```
 
-Work through the notebooks in order:
+The notebook auto-loads the checked-in fallback tokenizer (`models/pretrained/medical_bpe_tiny/`)
+if the trained artifacts are absent.
 
-| Notebook | Topic |
-|---|---|
-| [`notebooks/01_bpe.ipynb`](notebooks/01_bpe.ipynb) | Frequency BPE from scratch (Sennrich), HuggingFace `BpeTrainer` (course corpus), then `tiktoken` |
-| [`notebooks/02_wordpiece.ipynb`](notebooks/02_wordpiece.ipynb) | Likelihood WordPiece from scratch, `##` continuation, `WordPieceTrainer` |
-| [`notebooks/03_sentencepiece.ipynb`](notebooks/03_sentencepiece.ipynb) | Unigram Viterbi intuition, then `sentencepiece` 0.2.2 (`return_type=`, not deprecated `out_type`) |
-
-Each production trainer uses [`data/tiny_corpus.txt`](data/tiny_corpus.txt). Written models go to `artifacts/` (gitignored).
-
-**Network notes**
-
-- First `tiktoken.get_encoding(...)` **downloads** encoding files — do that once on a network before an offline lab.
-- If `sentencepiece` fails to install, load [`models/pretrained/sp_unigram_tiny.model`](models/pretrained/sp_unigram_tiny.model) and skip training (see notebook).
-
-Local site (optional; the Pages URL is enough for class):
+## Full pipeline (instructor, needs network)
 
 ```bash
-uv run python -m http.server 8000 --directory site
+# 1. Download 50k PubMed abstracts and split into train/held-out (gitignored)
+uv run python scripts/download_pubmed_sample.py --max-docs 50000
+uv run python scripts/split_corpus.py          # 45k train, 5k held-out
+
+# 2. Download wikitext-103 for the fairness control (gitignored)
+uv run python scripts/download_general_sample.py
+
+# 3. Train both tokenizers
+uv run python scripts/train_medical_tokenizer.py \
+    --corpus data/pubmed_train.jsonl \
+    --out artifacts/medical-bpe-pubmed/tokenizer.json
+uv run python scripts/train_medical_tokenizer.py \
+    --corpus data/general_train.jsonl \
+    --out artifacts/general-bpe/tokenizer.json
+
+# 4. Compare (CLI — all four tokenizers + held-out fertility)
+uv run python scripts/compare_tokenizers.py --no-qwen \
+    --tokenizer-json  artifacts/medical-bpe-pubmed/tokenizer.json \
+    --general-bpe     artifacts/general-bpe/tokenizer.json \
+    --heldout-medical data/pubmed_heldout.jsonl \
+    --heldout-general data/general_heldout.jsonl
+
+# 4b. Vocab-size experiment (same PubMed corpus: 16k / 32k / 50k / 64k / 100k)
+uv run python scripts/sweep_vocab_size.py \
+    --corpus data/pubmed_train.jsonl \
+    --heldout data/pubmed_heldout.jsonl \
+    --no-qwen
+
+# 5. Run the notebook
+uv run jupyter lab notebooks/04_custom_vs_general.ipynb
+
+# 6. Run tests
+uv run pytest tests/test_medical_compare.py tests/test_vocab_sweep.py -v
 ```
 
-Then open `http://localhost:8000`. You can also open `site/index.html` directly (`file://` works).
+GPU LoRA homework is **not** this lab. See [`docs/theory/07-optional-lora-sft.md`](docs/theory/07-optional-lora-sft.md)
+and `uv sync --extra sft`. Use the **stock** Qwen tokenizer.
 
-## Regression checks
-
-```bash
-node tests/golden_algos.mjs
-uv run python scripts/build_notebooks.py
-```
-
-## Project layout
+## Layout
 
 ```
-tokenization-explainer/
-├── site/                      # GitHub Pages root (static)
-│   ├── index.html
-│   ├── css/main.css
-│   ├── assets/og.png
-│   ├── diagrams/              # five teaching schematics + STYLE.md
-│   └── js/                    # corpora → playgrounds → algorithms → main
-├── notebooks/                 # 01 BPE, 02 WordPiece, 03 SentencePiece + lab_display.py
-├── data/sennrich_toy.txt      # classic four-word set
-├── data/tiny_corpus.txt       # richer course corpus
-├── models/pretrained/         # fallback SentencePiece model
-├── scripts/build_notebooks.py
-├── tests/golden_algos.mjs
-├── INSTRUCTOR.md
-├── assets/readme/             # README screenshots
-├── pyproject.toml
-└── .github/workflows/pages.yml
+docs/theory/                         # 00–08 slide-ready markdown
+  00-overview.md                     # lab design + 4-tokenizer table + run order
+  01-why-tokenization-matters.md
+  02-general-purpose-tokenizers.md   # cl100k, o200k, general-bpe explained
+  03-custom-domain-tokenizers.md     # PubMed BPE + fairness control design
+  04-metrics.md                      # fertility, single-token rate, held-out eval
+  05-why-custom-wins-in-healthcare.md
+  06-pretrained-model-trap.md        # required — board sentence
+  07-optional-lora-sft.md
+  08-vocab-size-tradeoff.md          # compression vs vocab size experiment
+
+docs/diagrams/
+  06-vocab-size-knee.md              # flattening curve + embedding cost
+
+data/
+  medical_corpus.txt                 # small authored set (tracked)
+  medical_probes.txt                 # 20 curated illustration probes (tracked)
+  medical_control.txt                # general English spot-check (tracked)
+  pubmed_sample.jsonl                # 50k downloaded abstracts (gitignored)
+  pubmed_train.jsonl                 # 45k train split (gitignored)
+  pubmed_heldout.jsonl               # 5k held-out eval (gitignored)
+  general_train.jsonl                # 45k wikitext train (gitignored)
+  general_heldout.jsonl              # 5k wikitext held-out (gitignored)
+
+notebooks/
+  04_custom_vs_general.ipynb        # the lab (38 cells)
+  lab_display.py                    # Rich display helpers (chips, charts, tables)
+
+scripts/
+  download_pubmed_sample.py         # stream PubMed → JSONL
+  split_corpus.py                   # deterministic 45k/5k disjoint split
+  download_general_sample.py        # stream wikitext-103 → JSONL
+  train_medical_tokenizer.py        # byte-level BPE trainer (generic --corpus)
+  wrap_medical_tokenizer.py         # tokenizer.json → PreTrainedTokenizerFast
+  compare_tokenizers.py             # 4-tokenizer CLI with held-out eval
+  sweep_vocab_size.py               # 16k–100k avg-tokens/doc experiment
+  build_notebooks.py                # regenerates notebook 04
+
+models/pretrained/medical_bpe_tiny/ # fallback if live train fails (tracked)
+
+artifacts/                           # trained outputs (gitignored)
+  medical-bpe-pubmed/               # custom-med 16k
+  medical-bpe-pubmed-16k/ … -100k/  # vocab-size sweep
+  general-bpe/                      # general-bpe 16k fairness control
+
+tests/
+  test_medical_compare.py           # structure + held-out fairness asserts
+  test_vocab_sweep.py               # knee / band / tiny-corpus monotonicity
 ```
 
-## Libraries (pinned via uv)
+## Network
 
-Resolved from PyPI; see `uv.lock`.
-
-| Package | Role |
-|---|---|
-| `tokenizers` 0.23.1 | HuggingFace BPE and WordPiece trainers |
-| `sentencepiece` 0.2.2 | Google SentencePiece (pybind11 API) |
-| `tiktoken` 0.14.0 | Production byte-level BPE (OpenAI models) |
-| `jupyterlab` 4.6.3, `ipykernel`, `ipywidgets` | Notebooks and live widgets |
-| `rich` 15.0.0 | Jupyter tables, colored token chips, Mix-cell explainer |
-
-SentencePiece 0.2.2: use `encode(..., return_type=str)` and `SentencePieceProcessor.from_file(...)`. Do not use deprecated `out_type` or `EncodeAsImmutableProto`.
-
-## GitHub Pages
-
-The site is static. GitHub Actions (`.github/workflows/pages.yml`) uploads the `site/` folder on every push to `main`. No Jekyll (`.nojekyll`).
-
-Notebooks, `uv`, and trained `.model` files under `artifacts/` are **not** part of Pages. The checked-in pretrained model under `models/pretrained/` is for local notebook fallback only.
-
----
-
-## Production Tokenizer (`production` branch)
-
-The `production` branch trains a **byte-level BPE tokenizer on legal English** and publishes it to the Hugging Face Hub as a drop-in `AutoTokenizer`.
-
-> **Branch strategy:** `main` is the teaching course — untouched. All production work lives on `production`.
-
-### Why legal English?
-
-Domain-adapted BPE uses **9–17% fewer tokens** than GPT-4o/Llama-3 on legal documents (KL3M, 2025). Specialized terms like `certiorari`, `indemnification`, and `subrogation` each become **one token** instead of 3–5.
-
-### Quickstart
-
-```bash
-git checkout production
-make install          # uv sync
-```
-
-Run the full pipeline step by step:
-
-```bash
-make corpus           # stream + shard FreeLaw      (~30-45 min, I/O)
-make train            # train byte-level BPE         (~1-2 h, CPU)
-make wrap             # wrap into HF fast tokenizer
-make eval             # TokEval metrics vs gpt2 + cl100k_base
-make test             # 112 pytest cases
-make push REPO=YOUR_USERNAME/legal-bpe-50k
-```
-
-Or all in one shot:
-
-```bash
-make all
-```
-
-**Override defaults on the command line:**
-
-| Variable | Default | Example |
-|---|---|---|
-| `MAX_SHARDS` | 10 | `make corpus MAX_SHARDS=5` |
-| `SHARD_MB` | 500 | `make corpus SHARD_MB=200` |
-| `VOCAB_SIZE` | 50257 | `make train VOCAB_SIZE=100000` |
-| `MIN_FREQ` | 2 | `make train MIN_FREQ=5` |
-| `TEST_DOCS` | 500 | `make eval TEST_DOCS=1000` |
-| `REPO` | YOUR_USERNAME/legal-bpe-50k | `make push REPO=alice/legal-bpe-50k` |
-
-**Useful shortcuts:**
-
-```bash
-make smoke    # import check + CLI help + pytest collect (no model needed)
-make clean    # delete data/corpus/ and models/legal-bpe-50k/
-make help     # list all targets with descriptions
-```
-
-**Direct script equivalents (if you prefer not to use make):**
-
-```bash
-uv run python scripts/build_corpus.py --max-shards 10 --shard-size-mb 500
-uv run python scripts/train_tokenizer.py
-uv run python scripts/wrap_tokenizer.py
-uv run python scripts/eval_tokenizer.py
-uv run pytest tests/test_tokenizer.py -v
-uv run python scripts/push_hub.py --repo YOUR_USERNAME/legal-bpe-50k
-```
-
-### One-liner load (after Hub push)
-
-```python
-from transformers import AutoTokenizer
-tok = AutoTokenizer.from_pretrained("YOUR_USERNAME/legal-bpe-50k")
-```
-
-### Target evaluation results
-
-| Metric | legal-bpe-50k (target) | gpt2 | cl100k_base |
-|---|---|---|---|
-| Vocab size | 50,257 | 50,257 | 100,277 |
-| Fertility (tokens/word) on legal | < 1.8 | ~2.2 | ~1.9 |
-| Domain-term single-token rate | > 40% | < 10% | < 15% |
-| Round-trip pass rate | 100% | 100% | 100% |
-| UNK-free on arbitrary UTF-8 | yes | no | yes |
-| Renyi efficiency (a=2) | measure + report | baseline | compare |
-
-### Scripts
-
-| Script | Purpose |
-|---|---|
-| `scripts/build_corpus.py` | Stream FreeLaw from HF Hub, filter, dedup, shard to `data/corpus/` |
-| `scripts/train_tokenizer.py` | ByteLevel BPE + GPT-4 regex pre-tokenizer, saves `tokenizer.json` |
-| `scripts/wrap_tokenizer.py` | Wraps into `PreTrainedTokenizerFast`, calls `save_pretrained` |
-| `scripts/eval_tokenizer.py` | TokEval metrics suite: fertility, Renyi, domain terms, digit alignment |
-| `scripts/push_hub.py` | HF login + `push_to_hub` |
-| `tests/test_tokenizer.py` | pytest suite: round-trip, UNK-free, adversarial battery (TokTier) |
-
-### Training time
-
-BPE training is **CPU-bound** -- GPUs sit idle during merge learning.
-
-| Phase | Estimated time |
-|---|---|
-| Corpus download + sharding (10 shards) | 30-45 min |
-| BPE training (Rust, all cores, 5 GB corpus) | 1-2 hours |
-| Wrap + eval + push | ~15 min |
-
-GPUs are useful for the optional downstream proxy evaluation (train a 10M-param GPT on the vocabulary and compare bits-per-byte).
-
-### Gitignored artifacts
-
-`data/corpus/` and `models/legal-bpe-50k/` are both `.gitignore`d -- they are large and reproducible. Only scripts and tests are committed.
+- `tiktoken` downloads `cl100k_base` and `o200k_base` encoding files on first call (small, cached).
+- PubMed and wikitext downloads are instructor-only; students use the fallback.
+- Qwen tokenizer is optional; `--no-qwen` skips it everywhere.
 
 ## License
 
