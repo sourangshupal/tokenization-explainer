@@ -112,7 +112,32 @@ uv run python scripts/sweep_vocab_size.py \
 
 Finds the **knee** of the fertility curve — the smallest vocab size near the minimum. For this PubMed corpus (< 1B tokens) the recommended band is **16k–32k**, not the 50k "modern LLM default."
 
-### Step 5 — Run the notebook and tests
+### Step 5 — Publish your tokenizer to HuggingFace Hub
+
+```bash
+# 1. Copy the example env file and add your HF token (Write scope)
+#    Get token at: https://huggingface.co/settings/tokens
+cp .env.example .env   # then edit .env and paste your token
+
+# 2. Wrap the trained tokenizer into HuggingFace format
+uv run python scripts/wrap_medical_tokenizer.py \
+    --tokenizer-json artifacts/medical-bpe-pubmed/tokenizer.json \
+    --out artifacts/medical-bpe-pubmed-hf
+
+# 3. Push to Hub (replace YOUR_USERNAME with your HF username)
+uv run python scripts/push_to_hub.py \
+    --tokenizer-dir artifacts/medical-bpe-pubmed-hf \
+    --repo-id YOUR_USERNAME/medical-bpe-16k
+```
+
+Load it from anywhere once published:
+
+```python
+from transformers import PreTrainedTokenizerFast
+tok = PreTrainedTokenizerFast.from_pretrained("YOUR_USERNAME/medical-bpe-16k")
+```
+
+### Step 6 — Run the notebook and tests
 
 ```bash
 uv run jupyter lab notebooks/04_custom_vs_general.ipynb
@@ -156,7 +181,8 @@ uv run pytest tests/test_medical_compare.py tests/test_vocab_sweep.py -v
 │   ├── train_medical_tokenizer.py   # Byte-level BPE trainer
 │   ├── wrap_medical_tokenizer.py    # tokenizer.json → PreTrainedTokenizerFast
 │   ├── compare_tokenizers.py        # 4-tokenizer CLI with held-out fertility
-│   └── sweep_vocab_size.py          # 16k–100k avg-tokens/doc experiment
+│   ├── sweep_vocab_size.py          # 16k–100k avg-tokens/doc experiment
+│   └── push_to_hub.py               # Upload trained tokenizer to HuggingFace Hub
 │
 ├── 🧪 tests/
 │   ├── test_medical_compare.py      # Held-out fairness assertions

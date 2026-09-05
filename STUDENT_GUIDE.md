@@ -265,7 +265,60 @@ cat docs/theory/06-pretrained-model-trap.md
 
 ---
 
-## ✅ Phase 8 — Run the test suite (5 min)
+## 🚀 Phase 8 — Publish your tokenizer to HuggingFace Hub (10 min)
+
+### 8a · Create your HuggingFace token
+
+1. Go to [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
+2. Click **New token** → choose **Write** scope → copy the token (starts with `hf_`)
+
+### 8b · Set up `.env`
+
+```bash
+cp .env.example .env
+# Open .env and replace hf_xxx... with your real token
+```
+
+> ⚠️ Never commit `.env` — it's in `.gitignore` already.
+
+### 8c · Wrap your trained tokenizer for HuggingFace
+
+```bash
+uv run python scripts/wrap_medical_tokenizer.py \
+  --tokenizer-json artifacts/medical-bpe-pubmed/tokenizer.json \
+  --out artifacts/medical-bpe-pubmed-hf
+# → artifacts/medical-bpe-pubmed-hf/tokenizer.json
+# → artifacts/medical-bpe-pubmed-hf/tokenizer_config.json
+```
+
+### 8d · Push to the Hub
+
+```bash
+uv run python scripts/push_to_hub.py \
+  --tokenizer-dir artifacts/medical-bpe-pubmed-hf \
+  --repo-id YOUR_HF_USERNAME/medical-bpe-16k
+# Example: --repo-id johndoe/medical-bpe-16k
+```
+
+Expected output:
+```
+creating/verifying repo  johndoe/medical-bpe-16k  (public) ...
+uploading 2 file(s) from artifacts/medical-bpe-pubmed-hf ...
+✅  done — https://huggingface.co/johndoe/medical-bpe-16k
+```
+
+### 8e · Verify it works
+
+```python
+from transformers import PreTrainedTokenizerFast
+
+tok = PreTrainedTokenizerFast.from_pretrained("YOUR_HF_USERNAME/medical-bpe-16k")
+print(tok.tokenize("acetylcholinesterase inhibitor"))
+```
+
+---
+
+## ✅ Phase 9 — Run the test suite (5 min)
 
 ```bash
 uv run pytest tests/test_medical_compare.py -v

@@ -14,6 +14,7 @@ dependencies = [
     "datasets>=3.6.0",
     "transformers>=5.16.1",
     "huggingface_hub>=0.30.0",
+    "python-dotenv>=1.0.0",
     "numpy>=2.0.0",
     "pytest>=8.4.0",
     "tqdm>=4.67.0",

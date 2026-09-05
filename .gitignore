@@ -32,6 +32,9 @@ data/.pubmed_xml_cache/
 !models/pretrained/
 !models/pretrained/**
 
+# Secrets — never commit
+.env
+
 # Instructor-only files — not for students
 TEACHING_PLAN.md
 INSTRUCTOR.md
