@@ -1,13 +1,13 @@
 # 🗺️ Full Lab Pipeline
 
-> **Two tracks, one destination:** The instructor builds the data and models once.
-> Students open a single notebook and explore everything that was prepared.
+> **Two tracks, one destination:** The data and models are built once in the setup phase.
+> Then the notebook is opened and everything prepared is explored.
 
 ## Complete pipeline flowchart
 
 ```mermaid
 flowchart LR
-    subgraph instructor ["👩‍🏫 Instructor Prep (run once, needs internet)"]
+    subgraph instructor ["⚙️ Setup Phase (run once, needs internet)"]
         direction TB
         I1["🌐 download_pubmed_sample.py\n→ data/pubmed_sample.jsonl\n(50k abstracts, ~180 MB)"]
         I2["✂️ split_corpus.py\n→ data/pubmed_train.jsonl  45k\n→ data/pubmed_heldout.jsonl  5k"]
@@ -64,16 +64,16 @@ flowchart LR
 
 ## Script quick reference
 
-| Script | Who runs | Input | Output |
-|--------|----------|-------|--------|
-| `download_pubmed_sample.py` | Instructor | HuggingFace Hub | `data/pubmed_sample.jsonl` |
-| `split_corpus.py` | Instructor | pubmed_sample.jsonl | train + heldout splits |
-| `download_general_sample.py` | Instructor | HuggingFace Hub | general train + heldout |
-| `train_medical_tokenizer.py` | Instructor (×2) | any `.jsonl` corpus | `tokenizer.json` (BPE) |
-| `wrap_medical_tokenizer.py` | Instructor | tokenizer.json | HuggingFace-compatible model |
-| `compare_tokenizers.py` | Anyone | heldout files | Fertility table (terminal) |
-| `sweep_vocab_size.py` | Instructor | pubmed train + heldout | 16k–100k avg tokens/doc table |
-| `pytest tests/` | Anyone | held-out files | compare + vocab-sweep asserts |
+| Script | When | Input | Output |
+|--------|------|-------|--------|
+| `download_pubmed_sample.py` | Setup | HuggingFace Hub | `data/pubmed_sample.jsonl` |
+| `split_corpus.py` | Setup | pubmed_sample.jsonl | train + heldout splits |
+| `download_general_sample.py` | Setup | HuggingFace Hub | general train + heldout |
+| `train_medical_tokenizer.py` | Setup (×2) | any `.jsonl` corpus | `tokenizer.json` (BPE) |
+| `wrap_medical_tokenizer.py` | Setup | tokenizer.json | HuggingFace-compatible model |
+| `compare_tokenizers.py` | Lab | heldout files | Fertility table (terminal) |
+| `sweep_vocab_size.py` | Lab | pubmed train + heldout | 16k–100k avg tokens/doc table |
+| `pytest tests/` | Lab | held-out files | compare + vocab-sweep asserts |
 
 ---
 *Back to theory: [00 overview](../theory/00-overview.md)*

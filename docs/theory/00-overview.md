@@ -72,7 +72,7 @@ If `custom-med` beats `general-bpe` on medical held-out text, domain is the caus
 | `docs/theory/06-pretrained-model-trap.md` | The misconception this lab exists to kill |
 | `docs/theory/08-vocab-size-tradeoff.md` | Compression vs vocab-size experiment |
 
-## Scripts (instructor run order)
+## Scripts (run order)
 
 ```bash
 # 1. Download and split PubMed data (network required; gitignored)

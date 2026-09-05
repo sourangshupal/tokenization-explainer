@@ -21,7 +21,7 @@ asks the next question: *given the same PubMed train set, which budget?*
 Same algorithm. Same `data/pubmed_train.jsonl`. Only `vocab_size` changes.
 Eval is on held-out abstracts (`data/pubmed_heldout.jsonl`) — never the train set.
 
-CLI (instructor, before class):
+CLI (run during setup):
 
 ```bash
 uv run python scripts/sweep_vocab_size.py \

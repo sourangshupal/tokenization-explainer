@@ -32,5 +32,7 @@ data/.pubmed_xml_cache/
 !models/pretrained/
 !models/pretrained/**
 
-# Instructor-only teaching notes
+# Instructor-only files — not for students
 TEACHING_PLAN.md
+INSTRUCTOR.md
+scripts/build_notebooks.py
