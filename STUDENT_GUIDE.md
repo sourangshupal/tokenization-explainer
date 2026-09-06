@@ -115,9 +115,9 @@ head -1 data/general_train.jsonl | python -m json.tool
 
 ```bash
 uv run python scripts/train_medical_tokenizer.py \
-  --input data/pubmed_train.jsonl \
+  --corpus data/pubmed_train.jsonl \
   --vocab-size 16000 \
-  --output artifacts/medical-bpe-pubmed/
+  --out artifacts/medical-bpe-pubmed/tokenizer.json
 # → artifacts/medical-bpe-pubmed/tokenizer.json
 ```
 
@@ -141,9 +141,9 @@ for m in t['model']['merges'][:20]:
 
 ```bash
 uv run python scripts/train_medical_tokenizer.py \
-  --input data/general_train.jsonl \
+  --corpus data/general_train.jsonl \
   --vocab-size 16000 \
-  --output artifacts/general-bpe/
+  --out artifacts/general-bpe/tokenizer.json
 # → artifacts/general-bpe/tokenizer.json
 ```
 
@@ -164,9 +164,11 @@ for m in t['model']['merges'][:20]:
 ### 3c · Wrap `custom-med` for HuggingFace
 
 ```bash
-uv run python scripts/wrap_medical_tokenizer.py
-# → models/pretrained/medical_bpe_tiny/tokenizer.json
-# → models/pretrained/medical_bpe_tiny/tokenizer_config.json
+uv run python scripts/wrap_medical_tokenizer.py \
+  --tokenizer-json artifacts/medical-bpe-pubmed/tokenizer.json \
+  --out artifacts/medical-bpe-pubmed-hf
+# → artifacts/medical-bpe-pubmed-hf/tokenizer.json
+# → artifacts/medical-bpe-pubmed-hf/tokenizer_config.json
 ```
 
 This makes `custom-med` usable with any HuggingFace pipeline — same API as GPT-4's tokenizer.
@@ -178,10 +180,11 @@ This makes `custom-med` usable with any HuggingFace pipeline — same API as GPT
 Quick look at all 4 tokenizers side by side:
 
 ```bash
-uv run python scripts/compare_tokenizers.py \
+uv run python scripts/compare_tokenizers.py --no-qwen \
+  --tokenizer-json  artifacts/medical-bpe-pubmed/tokenizer.json \
+  --general-bpe     artifacts/general-bpe/tokenizer.json \
   --heldout-medical data/pubmed_heldout.jsonl \
-  --heldout-general data/general_heldout.jsonl \
-  --general-bpe artifacts/general-bpe/tokenizer.json
+  --heldout-general data/general_heldout.jsonl
 ```
 
 You'll see a fertility table. **Don't interpret the numbers yet** — do the notebook first, then come back to explain what you see.
@@ -191,7 +194,7 @@ You'll see a fertility table. **Don't interpret the numbers yet** — do the not
 ## 📓 Phase 5 — Notebook lab (45 min)
 
 ```bash
-jupyter lab notebooks/04_custom_vs_general.ipynb
+uv run jupyter lab notebooks/04_custom_vs_general.ipynb
 ```
 
 Run every cell in order. For each cell, answer the question below before moving on.
@@ -222,9 +225,9 @@ What would happen to the fertility numbers if we used `--vocab-size 32000` for `
 
 ---
 
-## 📊 Phase 6 — The fairness numbers (class discussion)
+## 📊 Phase 6 — The fairness numbers (discussion)
 
-After the notebook, the instructor will draw this on the board. Make sure you understand each row:
+After the notebook, review these numbers together. Make sure you understand each row:
 
 ```
 Tokenizer       vocab   medical fertility   general fertility
@@ -321,11 +324,11 @@ print(tok.tokenize("acetylcholinesterase inhibitor"))
 ## ✅ Phase 9 — Run the test suite (5 min)
 
 ```bash
-uv run pytest tests/test_medical_compare.py -v
+uv run pytest tests/test_medical_compare.py tests/test_vocab_sweep.py -v
 ```
 
 Each green test = one of the lab's claims is numerically verified on your machine.  
-All 12 should pass if all 4 data files exist. You'll see which assertions correspond to which claims.
+All tests should pass if all 4 data files exist. You'll see which assertions correspond to which claims.
 
 ---
 
